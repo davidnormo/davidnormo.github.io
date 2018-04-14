@@ -24,11 +24,3 @@ Ecom Development Fact base
 *   ISO Code - A country code to uniquely identify a country usually either two or three characters long. Have been standardised under ISO 3166-1 e.g. DE is Germany, GB is Great Britain.
 
 *   Accessibility - Refers to the usibility of the site for those with impairments such as sight (colour blindness, impairment or fully blind), dyslexia, limb impairment and other conditions. Website accessibility can be rated according to the WCAG 2.0 (also ISO standardised). A site should be designed and developed with the use of screen reader and keyboard accessibility in mind.
-
-*   Responsive
-
-*   PWA - Progressive Web App
-
-*   SSR - Server Side Rendered
-
-*   SEO - Search Engine Optimization
