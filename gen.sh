@@ -14,13 +14,13 @@ function genPost {
   file=$1
   sha=$2
   filename=$(echo $file | eval $getFilename)
-  mkdir -p "posts/$sha"
-  echo "Creating posts/$sha/$filename.html"
+  mkdir -p "posts/$sha/$filename"
+  echo "Creating posts/$sha/$filename"
   # convert md to html
   content=$(git show $sha:$file | eval $mdToHTML)
   # add slashes so it can be used in sed replace
   content="$(quoteSubst "$content")"
-  cat template.html | sed -e ':a' -e '$!{N;ba' -e '}' -e "s/{{content}}/$content/" > "posts/$sha/$filename.html"
+  cat template.html | sed -e ':a' -e '$!{N;ba' -e '}' -e "s/{{content}}/$content/" > "posts/$sha/$filename/index.html"
 }
 
 # WIP
@@ -28,19 +28,20 @@ function genDiff {
   file=$1
   sha=$2
   filename=$(echo $file | eval $getFilename)
-  mkdir -p "posts/$sha/$filename"
-  content=$(git diff --color $sha $file | ./ansi2html.sh --body-only)
+  mkdir -p "posts/$sha/$filename/diff"
+  echo "Creating diff posts/$sha/$filename/diff"
+  content="<pre>"$(git diff --color $sha $file | ./ansi2html.sh --body-only 2>/dev/null)"</pre>"
   content="$(quoteSubst "$content")"
-  content=$(cat template.html | sed -e ':a' \
+  cat template.html | sed -e ':a' \
   -e '$!{N;ba' \
   -e '}' \
-  -e "s/{{content}}/$content/")
-  echo $content > "posts/$sha/$filename/diff.html"
+  -e "s/{{content}}/$content/" \
+  -e "s:<!-- {{styles}} -->:<link rel="stylesheet" href="/assets/diff-styles.css" />:" > "posts/$sha/$filename/diff/index.html"
 }
 
 files=$(find markdown -name "*.md")
 
-echo $files
+
 # build posts only for markdown files that exist on HEAD
 for file in $files; do
   for sha in $(git log --format=%h $file); do
