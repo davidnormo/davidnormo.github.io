@@ -24,13 +24,16 @@ function genPost {
 }
 
 # WIP
+# ====================
+# TODO: diff not off <commit>~1 but off of rev list
+# ====================
 function genDiff {
   file=$1
   sha=$2
   filename=$(echo $file | eval $getFilename)
   mkdir -p "posts/$sha/$filename/diff"
   echo "Creating diff posts/$sha/$filename/diff"
-  content="<pre>"$(git diff --color $sha $file | ./ansi2html.sh --body-only 2>/dev/null)"</pre>"
+  content="<pre>"$(git diff --color $sha~1 $sha $file | ./ansi2html.sh --body-only 2>/dev/null)"</pre>"
   content="$(quoteSubst "$content")"
   cat template.html | sed -e ':a' \
   -e '$!{N;ba' \
@@ -52,6 +55,7 @@ done
 
 for file in $files; do
   genPost $file "head"
+  genDiff $file "head"
 done
 
 content=$(cat index.md | eval $mdToHTML)
