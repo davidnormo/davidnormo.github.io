@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>blog</title>
-  <style>body { font-family: "Lucida Console", Monaco, monospace; }</style>
+  <style>
+  html { font-size: 16px; }
+  body {
+    font-family: Courier;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    padding: 20px;
+    background: #fcfcfc;
+    color: #333;
+    max-width: 700px;
+    margin: 0;
+  }
+  h1 { font-size: 2em; line-height: 1em; }
+  li { margin: 1em 0; }
+  @media (max-device-width: 812px) {
+    body {
+      max-width: 100vw;
+      font-size: 1em;
+    }
+    h1 {
+      font-size: 1.4em;
+      line-height: 1em;
+    }
+  }
+  </style>
   <!-- {{styles}} -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51391788-2"></script>
