@@ -22,7 +22,7 @@ At [Assert(js)](https://www.assertjs.com/) 2018, Justin Searls ([@searls](https:
 - to make mocking simpler in other tests
 
 ## 3. "Functions should do or delegate, never both"
-- delegators can be isoltation tested via mocks
-- ‎logic functions can be pure and tested behaviourly
+- delegators can be isoltation tested via mocks testing their contracts
+- ‎logic functions should be pure and tested for their behaviour
 
 ## 4. Outside in testing with mocks
