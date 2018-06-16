@@ -4,7 +4,7 @@
 
 At [Assert(js)](https://www.assertjs.com/) 2018, Justin Searls ([@searls](https://twitter.com/searls)) gave a great and balanced talk about the value of mocking.
 
-[Watch "Don't Mock Me" by Justin Searls at Assert\(js\) 2018](https://youtu.be/Af4M8GMoxi4)
+[Watch "Don't Mock Me" by Justin Searls at Assert\(js\) 2018](https://vimeo.com/257056050)
 
 ## 1. Don't partially mock the subject
 - may cause tests to fail unexpectedly in future
