@@ -1,5 +1,7 @@
 # Unit Testing with Mocks
 
+16 June 2018
+
 At [Assert(js)](https://www.assertjs.com/) 2018, Justin Searls ([@searls](https://twitter.com/searls)) gave
 a great and balanced talk about the value of mocking. Stop reading. Watch the talk.
 All of it. Or read my [Too long didn't watch](/posts/dont-mock-me-summary/head) summary for the more impatient among you

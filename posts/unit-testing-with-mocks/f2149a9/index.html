@@ -12,7 +12,7 @@
     padding: 20px;
     background: #fcfcfc;
     color: #333;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
     box-sizing: content-box;
     word-wrap: break-word;
@@ -85,6 +85,7 @@
   <div class="title"><a href="/">Dave Normington</a></div>
   <p class="description">Lead Software Engineer at <a href="https://www.arcadiagroup.co.uk/">Arcadia</a></p>
   <h1 id="unit-testing-with-mocks">Unit Testing with Mocks</h1>
+<p>16 June 2018</p>
 <p>At <a href="https://www.assertjs.com/">Assert(js)</a> 2018, Justin Searls (<a href="https://twitter.com/searls">@searls</a>) gave
 a great and balanced talk about the value of mocking. Stop reading. Watch the talk.
 All of it. Or read my <a href="/posts/dont-mock-me-summary/head">Too long didn&#39;t watch</a> summary for the more impatient among you
@@ -123,10 +124,15 @@ by using a mock. Likewise in the tests for <code>B</code> a mock can help to ver
 <li>When <code>C</code>&#39;s behaviour changes <code>A</code> and <code>B</code>&#39;s tests won&#39;t need to change (unless their contracts change)</li>
 <li>The other unspoken dependencies of <code>A</code> and <code>B</code> can also be mocked out, so we get the above benefits again for these other modules.</li>
 </ul>
+<p>What are the drawbacks?</p>
+<ul>
+<li>The tests for <code>A</code> and <code>B</code> are now more coupled to the unit they are testing. Refactoring them may require changing the tests also.</li>
+<li>There is now no unit test the covers the real path through the three modules. To have the same level of confidence that the code works correctly, we require another test to cover the full path.</li>
+</ul>
   <ul>
   <li><a href="./diff">See diff</a></li>
-  <li><a href="../a59b8a4">See earlier version</a></li>
-  <!--later <li><a href="../c2a81b9">See later version</a></li> -->
+  <li><a href="../7da4fd6">See earlier version</a></li>
+  <!--later <li><a href="../f2149a9">See later version</a></li> -->
 </ul>
 </body>
 </html>
