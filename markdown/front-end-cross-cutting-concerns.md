@@ -18,7 +18,7 @@ That doesn't exactly clarify things. A dictionary defintion looks a bit more pro
 So if we say our code is made up of multiple concerns, i.e. there are different bits that affect/are important to someone then a cross cutting concern (which I'll refer to as CCC onwards) is another concern that is intermingled in multiple other concerns.
 And this is where the problems usually occur, with the intermingling. A CCC in its nature introduces coupling.
 
-So what are some of theses pernicious CCCs? Here are a handful that I come in to contact with in UI codebases.
+So what are some of theses pernicious CCCs? Here are a handful that I come in to contact with in UI codebases:
 
 - Logging
 - SEO
@@ -31,5 +31,8 @@ So what are some of theses pernicious CCCs? Here are a handful that I come in to
 - Asynchronous UI states
 - State management
 
-Some of these are more subtle that we give them credit. The dark art of Search Engine Optimisation (SEO) for example: by changing a UI component, what is the effect on our search ranking?
-Or analytics: how can we ensure that ...
+Some of these are more subtle that we give them credit. The dark art of Search Engine Optimisation (SEO) for example: by changing a UI component, what is the effect on our search ranking? Some on the other hand are more straightforward, logging for example.
+
+The key thing to consider when dealing with coupling is - what will the impact of changing either of the modules be? 
+
+For example, imagine a 
