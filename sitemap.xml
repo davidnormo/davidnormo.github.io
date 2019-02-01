@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/transducers/</loc>
+    <lastmod>2018-10-21T22:26:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/designing-a-query-lang/</loc>
+    <lastmod>2018-08-10T22:44:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/unit-testing-with-mocks/</loc>
+    <lastmod>2018-06-16T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/dont-mock-me-summary/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/ecom-fact-base/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/posts/</loc>
+    <lastmod>2018-10-21T22:26:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidnormo.github.io/</loc>
+    <lastmod>2018-10-21T22:26:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on davidnormo blog</title>
+    <link>https://davidnormo.github.io/posts/</link>
+    <description>Recent content in Posts on davidnormo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 21 Oct 2018 22:26:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://davidnormo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reuse logic, avoid duplication, maintain performance with transducers</title>
+      <link>https://davidnormo.github.io/posts/transducers/</link>
+      <pubDate>Sun, 21 Oct 2018 22:26:01 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/transducers/</guid>
+      <description>“What now?” may have been your first reaction. This post looks at how we can use advanced functional concepts to make your code more composable (and therefore reusable!). This is not a new concept but it’s not familiar to a lot of developers especially outside of the Clojure community, where they were invented.
+Transducers aren’t incomprehensible but they require a bit of patience and learning.
+TL;DR Pros: Composable transformation pipelines which are independent of their input and output sources and they perform really well.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Query Lang</title>
+      <link>https://davidnormo.github.io/posts/designing-a-query-lang/</link>
+      <pubDate>Fri, 10 Aug 2018 22:44:00 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/designing-a-query-lang/</guid>
+      <description>A little over a year ago, I helped to design a query language (similar to SQL) for users of a wealth management product we were building. I worked on the initial language design and the front end experience while Bruno Felix built the final version and hooked it up to our client&amp;rsquo;s Java backend.
+The potential users of the product would not be DBAs, programmers or even be particularly computer savvy.</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing With Mocks</title>
+      <link>https://davidnormo.github.io/posts/unit-testing-with-mocks/</link>
+      <pubDate>Sat, 16 Jun 2018 22:27:01 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/unit-testing-with-mocks/</guid>
+      <description>At Assert(js) 2018, Justin Searls (@searls) gave a great and balanced talk about the value of mocking. Stop reading. Watch the talk. All of it. Or read my Too long didn&amp;rsquo;t watch summary for the more impatient among you but the talk is much more entertaining.
+[![&#34;Don&#39;t Mock Me&#34; by Justin Searls at Assert\(js\) 2018](https://i.ytimg.com/vi/Af4M8GMoxi4/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&amp;rs=AOn4CLCdoQgCsfIPHzbmmx2NGN-xGw7kSg)](https://vimeo.com/257056050) Before Justin&amp;rsquo;s talk I fell into the &amp;ldquo;avoid mocking unless absolutely necessary&amp;rdquo; camp. I didn&amp;rsquo;t consider the pros and cons of either approach.</description>
+    </item>
+    
+    <item>
+      <title>&#34;Don&#39;t Mock Me&#34; by Justin Searls at Assert(js) 2018 Summary</title>
+      <link>https://davidnormo.github.io/posts/dont-mock-me-summary/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/dont-mock-me-summary/</guid>
+      <description>At Assert(js) 2018, Justin Searls (@searls) gave a great and balanced talk about the value of mocking.
+Watch &amp;ldquo;Don&amp;rsquo;t Mock Me&amp;rdquo; by Justin Searls at Assert(js) 2018
+1. Don&amp;rsquo;t partially mock the subject  may cause tests to fail unexpectedly in future When the test subject is partially mocked this is an antipattern called the &amp;ldquo;Contaminated Test Subject&amp;rdquo;  2. Don&amp;rsquo;t partially mock dependencies  Partially mocking a module&amp;rsquo;s dependencies is usually be caused by developers not wanting to &amp;ldquo;overmock&amp;rdquo; or not agreeing on how to mock properly.</description>
+    </item>
+    
+    <item>
+      <title>Ecom Fact Base</title>
+      <link>https://davidnormo.github.io/posts/ecom-fact-base/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/ecom-fact-base/</guid>
+      <description>SKU - &amp;ldquo;Stock Keeping Unit&amp;rdquo; is the name for a single product that can be counted as stock. For example a medium blue shirt is a SKU of the blue shirt product of the Shirt category.
+ PDP - Product Details Page - The page of the website dedicated to a product that provides customers with information and a way to purchase.
+ PLP - Product Listing Page - Fundamentally a PLP allows the user to view multiple products but may also allow the user to change how they see them (filters and sorting) and link to each PDP</description>
+    </item>
+    
+  </channel>
+</rss>
