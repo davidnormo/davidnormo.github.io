@@ -91,7 +91,7 @@ blockquote {
   <p>Recursive dependencies are modules that eventually depend upon themselves.
 This causes unexpected errors at run time such as module exports seemingly being undefined.</p>
 
-<h2 id="an-example">An example</h2>
+<h3 id="an-example">An example</h3>
 
 <p>Consider the following code</p>
 
@@ -160,7 +160,7 @@ The times I&rsquo;ve found this out in the wild have had many more modules invol
 <p>These are a lot harder to work out what is going on. You have to try and keep
 the module dependency tree in your head or keep all the files open in your editor.</p>
 
-<h2 id="how-to-fix">How to fix</h2>
+<h3 id="how-to-fix">How to fix</h3>
 
 <p>In our simple example not only do the modules a.js and b.js depend on each other
 but the functions <code>a</code> and <code>b</code> call each other. This is a very tight coupling. If
@@ -172,7 +172,7 @@ it is probably best to inline <code>b</code> into <code>a</code>.</p>
 you can extract out another module that doesn&rsquo;t depend on one of the modules in the
 recursive loop. Or you can duplicate some code from one of the modules in the loop (a short term fix).</p>
 
-<h2 id="round-up">Round up</h2>
+<h3 id="round-up">Round up</h3>
 
 <p>So next time you see strange errors where module dependencies are inexplicably
 causing an error, think, it may be caused by a recursive dependency!</p>
