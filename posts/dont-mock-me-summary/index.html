@@ -129,19 +129,27 @@ blockquote {
 <h2 id="4-outside-in-testing-with-mocks">4. Outside in testing with mocks</h2>
 
   <div id="disqus_thread"></div>
-	<script>
-	var disqus_config = function () {
-	this.page.url = "https:\/\/davidnormo.github.io\/posts\/dont-mock-me-summary\/";
-	this.page.identifier = "0f783c1b5f03399d2e8e11e8aae0873c";
-	};
-	(function() { 
-	var d = document, s = d.createElement('script');
-	s.src = 'https://davidnormo.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https:\/\/davidnormo.github.io\/posts\/dont-mock-me-summary\/";
+      this.page.identifier = "0f783c1b5f03399d2e8e11e8aae0873c";
+      this.callbacks.onNewComment = [function(comment) {
+            ga('send', {
+              'hitType': 'event',
+              'eventCategory': 'Comments',
+              'eventAction': 'New Comment',
+              'eventLabel': 'New Comment'
+          });
+      }];
+    };
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://davidnormo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
         </div></body>
 </html>

@@ -283,19 +283,27 @@ Unless you have ONE of the following, I wouldn’t suggest to use transducers in
 <a href="https://youtu.be/6mTbuzafcII">https://youtu.be/6mTbuzafcII</a></p>
 
   <div id="disqus_thread"></div>
-	<script>
-	var disqus_config = function () {
-	this.page.url = "https:\/\/davidnormo.github.io\/posts\/transducers\/";
-	this.page.identifier = "aa80559140f808252bed69a84884986b";
-	};
-	(function() { 
-	var d = document, s = d.createElement('script');
-	s.src = 'https://davidnormo.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https:\/\/davidnormo.github.io\/posts\/transducers\/";
+      this.page.identifier = "aa80559140f808252bed69a84884986b";
+      this.callbacks.onNewComment = [function(comment) {
+            ga('send', {
+              'hitType': 'event',
+              'eventCategory': 'Comments',
+              'eventAction': 'New Comment',
+              'eventLabel': 'New Comment'
+          });
+      }];
+    };
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://davidnormo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
         </div></body>
 </html>
