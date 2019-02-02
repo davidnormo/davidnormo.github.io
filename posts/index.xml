@@ -6,10 +6,20 @@
     <description>Recent content in Posts on davidnormo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 21 Oct 2018 22:26:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Feb 2019 10:05:53 +0000</lastBuildDate>
     
 	<atom:link href="https://davidnormo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recursive Dependencies</title>
+      <link>https://davidnormo.github.io/posts/recursive-dependencies-js/</link>
+      <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/posts/recursive-dependencies-js/</guid>
+      <description>&lt;p&gt;Recursive dependencies are modules that eventually depend upon themselves.
+This causes unexpected errors at run time such as module exports seemingly being undefined.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Reuse logic, avoid duplication, maintain performance with transducers</title>
@@ -38,8 +48,10 @@ The potential users of the product would not be DBAs, programmers or even be par
       <pubDate>Sat, 16 Jun 2018 22:27:01 +0000</pubDate>
       
       <guid>https://davidnormo.github.io/posts/unit-testing-with-mocks/</guid>
-      <description>At Assert(js) 2018, Justin Searls (@searls) gave a great and balanced talk about the value of mocking. Stop reading. Watch the talk. All of it. Or read my Too long didn&amp;rsquo;t watch summary for the more impatient among you but the talk is much more entertaining.
-[![&#34;Don&#39;t Mock Me&#34; by Justin Searls at Assert\(js\) 2018](https://i.ytimg.com/vi/Af4M8GMoxi4/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&amp;rs=AOn4CLCdoQgCsfIPHzbmmx2NGN-xGw7kSg)](https://vimeo.com/257056050) Before Justin&amp;rsquo;s talk I fell into the &amp;ldquo;avoid mocking unless absolutely necessary&amp;rdquo; camp. I didn&amp;rsquo;t consider the pros and cons of either approach.</description>
+      <description>&lt;p&gt;At &lt;a href=&#34;https://www.assertjs.com/&#34;&gt;Assert(js)&lt;/a&gt; 2018, Justin Searls (&lt;a href=&#34;https://twitter.com/searls&#34;&gt;@searls&lt;/a&gt;) gave
+a great and balanced talk about the value of mocking. Stop reading. Watch the talk.
+All of it. Or read my &lt;a href=&#34;https://davidnormo.github.io/posts/dont-mock-me-summary/head&#34;&gt;Too long didn&amp;rsquo;t watch&lt;/a&gt; summary for the more impatient among you
+but the talk is much more entertaining.&lt;/p&gt;</description>
     </item>
     
     <item>
