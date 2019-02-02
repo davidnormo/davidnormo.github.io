@@ -55,17 +55,6 @@ but the talk is much more entertaining.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>&#34;Don&#39;t Mock Me&#34; by Justin Searls at Assert(js) 2018 Summary</title>
-      <link>https://davidnormo.github.io/posts/dont-mock-me-summary/</link>
-      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://davidnormo.github.io/posts/dont-mock-me-summary/</guid>
-      <description>At Assert(js) 2018, Justin Searls (@searls) gave a great and balanced talk about the value of mocking.
-Watch &amp;ldquo;Don&amp;rsquo;t Mock Me&amp;rdquo; by Justin Searls at Assert(js) 2018
-1. Don&amp;rsquo;t partially mock the subject  may cause tests to fail unexpectedly in future When the test subject is partially mocked this is an antipattern called the &amp;ldquo;Contaminated Test Subject&amp;rdquo;  2. Don&amp;rsquo;t partially mock dependencies  Partially mocking a module&amp;rsquo;s dependencies is usually be caused by developers not wanting to &amp;ldquo;overmock&amp;rdquo; or not agreeing on how to mock properly.</description>
-    </item>
-    
-    <item>
       <title>Ecom Fact Base</title>
       <link>https://davidnormo.github.io/posts/ecom-fact-base/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
