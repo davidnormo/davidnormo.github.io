@@ -6,9 +6,37 @@
     <description>Recent content in Tags on davidnormo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
+    <lastBuildDate>Sat, 02 Feb 2019 10:05:53 +0000</lastBuildDate>
     
 	<atom:link href="https://davidnormo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://davidnormo.github.io/tags/javascript/</link>
+      <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>https://davidnormo.github.io/tags/node/</link>
+      <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://davidnormo.github.io/tags/programming/</link>
+      <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
+      
+      <guid>https://davidnormo.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

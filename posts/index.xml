@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Recursive Dependencies</title>
-      <link>https://davidnormo.github.io/posts/recursive-dependencies-js/</link>
+      <title>Circular Dependencies</title>
+      <link>https://davidnormo.github.io/posts/circular-dependencies-js/</link>
       <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/recursive-dependencies-js/</guid>
-      <description>&lt;p&gt;Recursive dependencies are modules that eventually depend upon themselves.
+      <guid>https://davidnormo.github.io/posts/circular-dependencies-js/</guid>
+      <description>&lt;p&gt;Circular or recursive dependencies are modules that eventually depend upon themselves.
 This causes unexpected errors at run time such as module exports seemingly being undefined.&lt;/p&gt;</description>
     </item>
     
