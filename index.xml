@@ -13,10 +13,10 @@
     
     <item>
       <title>The Partition On Kata</title>
-      <link>https://davidnormo.github.io/posts/predicate-on-kata/</link>
+      <link>https://davidnormo.github.io/posts/partition-on-kata/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/predicate-on-kata/</guid>
+      <guid>https://davidnormo.github.io/posts/partition-on-kata/</guid>
       <description>The partition on kata is as follows:
  Given the fn partitionOn(predicate, arr) modify array so that all items in the list are re-ordered with all items that fail the predicate are first and all items that pass it follow after. The return value of the the array should be the index of the first item that passed the predicate.
 For example:
