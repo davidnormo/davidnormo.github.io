@@ -8,12 +8,7 @@
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/</loc>
-    <lastmod>2020-04-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://davidnormo.github.io/posts/partition-on-kata/</loc>
+    <loc>https://davidnormo.github.io/partition-on-kata/</loc>
     <lastmod>2020-04-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,7 +18,7 @@
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/circular-dependencies-js/</loc>
+    <loc>https://davidnormo.github.io/circular-dependencies-js/</loc>
     <lastmod>2019-02-02T10:05:53+00:00</lastmod>
   </url>
   
@@ -53,22 +48,22 @@
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/transducers/</loc>
+    <loc>https://davidnormo.github.io/transducers/</loc>
     <lastmod>2018-10-21T22:26:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/designing-a-query-lang/</loc>
+    <loc>https://davidnormo.github.io/designing-a-query-lang/</loc>
     <lastmod>2018-08-10T22:44:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/unit-testing-with-mocks/</loc>
+    <loc>https://davidnormo.github.io/unit-testing-with-mocks/</loc>
     <lastmod>2018-06-16T22:27:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://davidnormo.github.io/posts/ecom-fact-base/</loc>
+    <loc>https://davidnormo.github.io/ecom-fact-base/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   

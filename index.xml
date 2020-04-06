@@ -13,10 +13,10 @@
     
     <item>
       <title>The Partition On Kata</title>
-      <link>https://davidnormo.github.io/posts/partition-on-kata/</link>
+      <link>https://davidnormo.github.io/partition-on-kata/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/partition-on-kata/</guid>
+      <guid>https://davidnormo.github.io/partition-on-kata/</guid>
       <description>The partition on kata is as follows:
  Given the fn partitionOn(predicate, arr) modify array so that all items in the list are re-ordered with all items that fail the predicate are first and all items that pass it follow after. The return value of the the array should be the index of the first item that passed the predicate.
 For example:
@@ -25,20 +25,20 @@ const arr = [1,2,3,4,5] partitionOn(isEven, arr) // =&amp;gt; 3 console.</descri
     
     <item>
       <title>Circular Dependencies</title>
-      <link>https://davidnormo.github.io/posts/circular-dependencies-js/</link>
+      <link>https://davidnormo.github.io/circular-dependencies-js/</link>
       <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/circular-dependencies-js/</guid>
+      <guid>https://davidnormo.github.io/circular-dependencies-js/</guid>
       <description>&lt;p&gt;Circular or recursive dependencies are modules that eventually depend upon themselves.
 This causes unexpected errors at run time such as module exports seemingly being undefined.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Reuse logic, avoid duplication, maintain performance with transducers</title>
-      <link>https://davidnormo.github.io/posts/transducers/</link>
+      <link>https://davidnormo.github.io/transducers/</link>
       <pubDate>Sun, 21 Oct 2018 22:26:01 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/transducers/</guid>
+      <guid>https://davidnormo.github.io/transducers/</guid>
       <description>“What now?” may have been your first reaction. This post looks at how we can use advanced functional concepts to make your code more composable (and therefore reusable!). This is not a new concept but it’s not familiar to a lot of developers especially outside of the Clojure community, where they were invented.
 Transducers aren’t incomprehensible but they require a bit of patience and learning.
 TL;DR Pros: Composable transformation pipelines which are independent of their input and output sources and they perform really well.</description>
@@ -46,20 +46,20 @@ TL;DR Pros: Composable transformation pipelines which are independent of their i
     
     <item>
       <title>Designing a Query Lang</title>
-      <link>https://davidnormo.github.io/posts/designing-a-query-lang/</link>
+      <link>https://davidnormo.github.io/designing-a-query-lang/</link>
       <pubDate>Fri, 10 Aug 2018 22:44:00 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/designing-a-query-lang/</guid>
+      <guid>https://davidnormo.github.io/designing-a-query-lang/</guid>
       <description>A little over a year ago, I helped to design a query language (similar to SQL) for users of a wealth management product we were building. I worked on the initial language design and the front end experience while Bruno Felix built the final version and hooked it up to our client&amp;rsquo;s Java backend.
 The potential users of the product would not be DBAs, programmers or even be particularly computer savvy.</description>
     </item>
     
     <item>
       <title>Unit Testing With Mocks</title>
-      <link>https://davidnormo.github.io/posts/unit-testing-with-mocks/</link>
+      <link>https://davidnormo.github.io/unit-testing-with-mocks/</link>
       <pubDate>Sat, 16 Jun 2018 22:27:01 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/unit-testing-with-mocks/</guid>
+      <guid>https://davidnormo.github.io/unit-testing-with-mocks/</guid>
       <description>&lt;p&gt;At &lt;a href=&#34;https://www.assertjs.com/&#34;&gt;Assert(js)&lt;/a&gt; 2018, Justin Searls (&lt;a href=&#34;https://twitter.com/searls&#34;&gt;@searls&lt;/a&gt;) gave
 a great and balanced talk about the value of mocking. Stop reading. Watch the talk.
 All of it. Or read my &lt;a href=&#34;https://davidnormo.github.io/posts/dont-mock-me-summary/head&#34;&gt;Too long didn&amp;rsquo;t watch&lt;/a&gt; summary for the more impatient among you
@@ -68,10 +68,10 @@ but the talk is much more entertaining.&lt;/p&gt;</description>
     
     <item>
       <title>Ecom Fact Base</title>
-      <link>https://davidnormo.github.io/posts/ecom-fact-base/</link>
+      <link>https://davidnormo.github.io/ecom-fact-base/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://davidnormo.github.io/posts/ecom-fact-base/</guid>
+      <guid>https://davidnormo.github.io/ecom-fact-base/</guid>
       <description>SKU - &amp;ldquo;Stock Keeping Unit&amp;rdquo; is the name for a single product that can be counted as stock. For example a medium blue shirt is a SKU of the blue shirt product of the Shirt category.
   PDP - Product Details Page - The page of the website dedicated to a product that provides customers with information and a way to purchase.
   PLP - Product Listing Page - Fundamentally a PLP allows the user to view multiple products but may also allow the user to change how they see them (filters and sorting) and link to each PDP</description>
