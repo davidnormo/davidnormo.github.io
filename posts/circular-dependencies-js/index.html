@@ -5,6 +5,7 @@
   davidnormo blog | Circular Dependencies
 </title><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#333333" />
+<link rel="stylesheet" href="/css/syntax.css" />
 <style>
 html { font-size: 18px; }
 body {
@@ -36,11 +37,10 @@ li { margin: 1em 0; }
   line-height: 0.3em;
   margin-bottom: 20px;
 }
-pre {
+.lntable {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  background: #f0f0f0;
   overflow: scroll;
   font-family: Courier;
   font-size: 0.7em;
@@ -48,12 +48,6 @@ pre {
 }
 pre code {
   padding: 0;
-}
-code {
-  font-family: Courier;
-  font-size: 1em;
-  background: #f0f0f0;
-  padding: 3px 5px;
 }
 blockquote {
   border-left: 5px solid #ddd;
@@ -90,11 +84,8 @@ blockquote {
   <p>Feb 2, 2019</p>
   <p>Circular or recursive dependencies are modules that eventually depend upon themselves.
 This causes unexpected errors at run time such as module exports seemingly being undefined.</p>
-
 <h3 id="an-example">An example</h3>
-
 <p>Consider the following code</p>
-
 <pre><code>// a.js
 const { b } = require('./b')
 function a() {
@@ -102,20 +93,14 @@ function a() {
 }
 module.exports.a = a
 a()
-</code></pre>
-
-<pre><code>// b.js
+</code></pre><pre><code>// b.js
 const { a } = require('./a')
 function b() {
   a()
 }
 module.exports.b = b
-</code></pre>
-
-<p>We have 2 modules, <code>a.js</code> and <code>b.js</code>. <code>a</code> depends on <code>b</code> and <code>b</code> depends on <code>a</code> - a circular dependency!</p>
-
+</code></pre><p>We have 2 modules, <code>a.js</code> and <code>b.js</code>. <code>a</code> depends on <code>b</code> and <code>b</code> depends on <code>a</code> - a circular dependency!</p>
 <p>Let&rsquo;s execute the code to see what happens:</p>
-
 <pre><code>$ node ./a
 /Users/davidnormo/tmp/b.js:4
   a()
@@ -126,54 +111,39 @@ TypeError: a is not a function
     at a (/Users/davidnormo/tmp/a.js:4:2)
     at Object.&lt;anonymous&gt; (/Users/davidnormo/tmp/a.js:7:1)
     ...
-</code></pre>
-
-<p>What happened? We got a <code>TypeError</code> which means that the error occured at runtime.
+</code></pre><p>What happened? We got a <code>TypeError</code> which means that the error occured at runtime.
 The code was compiled by the JS engine (V8 in our case) so the circular dependency wasn&rsquo;t caught early.
 This is because dependencies in Node are resolved at runtime, <code>require</code> is just another function.</p>
-
 <p>When it came to executing the code, the stack trace tells us the story.
 Reading from the bottom upwards (I&rsquo;ve cut out the start of the stack that references node internals):</p>
-
 <ul>
-<li><code>at Object.&lt;anonymous&gt; (/Users/davidnormo/tmp/a.js:7:1)</code><br>
+<li><code>at Object.&lt;anonymous&gt; (/Users/davidnormo/tmp/a.js:7:1)</code><!-- raw HTML omitted -->
 This is the a.js module (as the module is wrapped in a function by node) at line 7, calls <code>a()</code></li>
-<li><code>at a (/Users/davidnormo/tmp/a.js:4:2)</code><br>
+<li><code>at a (/Users/davidnormo/tmp/a.js:4:2)</code><!-- raw HTML omitted -->
 At line 4 of a.js <code>a</code> calls <code>b()</code></li>
-<li><code>at b (/Users/davidnormo/tmp/b.js:4:3)</code><br>
+<li><code>at b (/Users/davidnormo/tmp/b.js:4:3)</code><!-- raw HTML omitted -->
 At line 4 of b.js <code>a</code> is called</li>
-<li><code>TypeError: a is not a function</code><br>
+<li><code>TypeError: a is not a function</code><!-- raw HTML omitted -->
 At this point the error is thrown.</li>
 </ul>
-
 <p>So if <code>a</code> is not a function when <code>b</code> tries to call it, what is it? It&rsquo;s <code>undefined</code>.</p>
-
 <p>I don&rsquo;t know exactly how the internal node module resolution mechanism works -
 it&rsquo;s something I want to do a bit more research on - but this is one of the tricky cases.</p>
-
 <p>The above example is obviously contrived to illustrate the point.
 The times I&rsquo;ve found this out in the wild have had many more modules involves e.g.</p>
-
 <pre><code>a -requires-&gt; b -requires-&gt; c -requires-&gt; d -requires-&gt; a
-</code></pre>
-
-<p>These are a lot harder to work out what is going on. You have to try and keep
+</code></pre><p>These are a lot harder to work out what is going on. You have to try and keep
 the module dependency tree in your head or keep all the files open in your editor.</p>
-
 <h3 id="how-to-fix">How to fix</h3>
-
 <p>In our simple example not only do the modules a.js and b.js depend on each other
 but the functions <code>a</code> and <code>b</code> call each other. This is a very tight coupling. If
 all the code was put in the same module the functions would call each other
 recursively until we get a &ldquo;Maximum call stack size exceeded&rdquo; error. In this case
 it is probably best to inline <code>b</code> into <code>a</code>.</p>
-
 <p>In the case that the modules depend recursively but not the functions,
 you can extract out another module that doesn&rsquo;t depend on one of the modules in the
 recursive loop. Or you can duplicate some code from one of the modules in the loop (a short term fix).</p>
-
 <h3 id="round-up">Round up</h3>
-
 <p>So next time you see strange errors where module dependencies are inexplicably
 causing an error, think, it may be caused by a circular dependency!</p>
   <div id="disqus_thread"></div>

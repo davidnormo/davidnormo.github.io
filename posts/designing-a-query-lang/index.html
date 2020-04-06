@@ -5,6 +5,7 @@
   davidnormo blog | Designing a Query Lang
 </title><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#333333" />
+<link rel="stylesheet" href="/css/syntax.css" />
 <style>
 html { font-size: 18px; }
 body {
@@ -36,11 +37,10 @@ li { margin: 1em 0; }
   line-height: 0.3em;
   margin-bottom: 20px;
 }
-pre {
+.lntable {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  background: #f0f0f0;
   overflow: scroll;
   font-family: Courier;
   font-size: 0.7em;
@@ -48,12 +48,6 @@ pre {
 }
 pre code {
   padding: 0;
-}
-code {
-  font-family: Courier;
-  font-size: 1em;
-  background: #f0f0f0;
-  padding: 3px 5px;
 }
 blockquote {
   border-left: 5px solid #ddd;
@@ -92,42 +86,30 @@ blockquote {
 of a wealth management product we were building. I worked on the initial language design
 and the front end experience while Bruno Felix built the final version and hooked it up to
 our client&rsquo;s Java backend.</p>
-
 <p>The potential users of the product would not be DBAs, programmers or even be particularly
 computer savvy. Their day to day tools included Microsoft Excel and had grown so used
 to it that, during our first round of user testing, some were reluctant to use anything else.
 Therefore the product, including the query language, had to be simple enough for them to
 understand and be picked up quickly.</p>
-
 <p>The dataset we were querying had values that changed over time as the records pointed to
 market positions whose value changed as the market did. Therefore a &ldquo;SELECT&rdquo; query
 didn&rsquo;t return a single result but instead created a stream of results that we would need
 to continually render.</p>
-
 <p>I wanted to transpile this query language into EPL to run in the Esper engine.
 I was unfamilar with Esper and EPL and if you are also, think of Esper as the database
 working on inbound streams of data and EPL is the query language to form an outbound stream of results.
 These were the tools being used by our client at the time.</p>
-
 <p>I prototyped the query language in Javascript in a day or so, which pulled data from a randomly generated dataset.
 The aim was to see if I could write a simple query language, familarise myself with lexing, parsing, etc,
 and present it to the client as the main interface of the product which their users will interact with.</p>
-
 <p>An example query may have been:</p>
-
 <pre><code>get crypto where price &gt; 200m
-</code></pre>
-
-<p>This would roughly translate to:</p>
-
+</code></pre><p>This would roughly translate to:</p>
 <pre><code># Aggregate the position records (sum) and filter (where) the aggregates by those greater than 200 million.
 SELECT * from (SELECT SUM(price) from Positions) where price &gt; 200000000
-</code></pre>
-
-<p>We knew ahead of time that there was a limited number of columns and we knew the
+</code></pre><p>We knew ahead of time that there was a limited number of columns and we knew the
 types of the columns which meant that we could infer the column aggregate function (sum, concat etc).
 That meant less syntax for the end user to learn, win!</p>
-
 <p>It occurred to me that the user would probably want a lot of the same tools that developers use everyday
 to help them construct their queries, such as syntax highlighting and autocompletion.
 However we didn&rsquo;t want the network latency to hinder the user experience; who wants to
@@ -136,14 +118,12 @@ written using ANTLR which we&rsquo;d use to generate the Java parser. Luckily, A
 supports generating Javascript which we could use to parse the statements on the
 client, check for syntax errors, use the AST (Abstract Syntax Tree) for highlighting
 and for autocompletion.</p>
-
 <p>Unfortunately I moved on from Signal Noise before seeing the final version. Although it was fun
 working on context free grammars and mixing more computer science stuff with software engineering,
 I have my doubts as to how successful the query language will be. Thinking of similar
 implementations such as Jira&rsquo;s JQL, I don&rsquo;t know how well used or liked it is verus filters
 and drop down menus. The client even said that they had tried a query language before
 without much success.</p>
-
 <p>Still I learned a lot and had fun working with Bruno et al so for me it was a great success.</p>
 
   <div id="disqus_thread"></div>

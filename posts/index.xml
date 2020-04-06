@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on davidnormo blog</title>
@@ -73,8 +73,8 @@ but the talk is much more entertaining.&lt;/p&gt;</description>
       
       <guid>https://davidnormo.github.io/posts/ecom-fact-base/</guid>
       <description>SKU - &amp;ldquo;Stock Keeping Unit&amp;rdquo; is the name for a single product that can be counted as stock. For example a medium blue shirt is a SKU of the blue shirt product of the Shirt category.
- PDP - Product Details Page - The page of the website dedicated to a product that provides customers with information and a way to purchase.
- PLP - Product Listing Page - Fundamentally a PLP allows the user to view multiple products but may also allow the user to change how they see them (filters and sorting) and link to each PDP</description>
+  PDP - Product Details Page - The page of the website dedicated to a product that provides customers with information and a way to purchase.
+  PLP - Product Listing Page - Fundamentally a PLP allows the user to view multiple products but may also allow the user to change how they see them (filters and sorting) and link to each PDP</description>
     </item>
     
   </channel>

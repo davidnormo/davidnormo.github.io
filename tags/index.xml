@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on davidnormo blog</title>
@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Javascript</title>
+      <title>JavaScript</title>
       <link>https://davidnormo.github.io/tags/javascript/</link>
       <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
       
@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>Node</title>
+      <title>node</title>
       <link>https://davidnormo.github.io/tags/node/</link>
       <pubDate>Sat, 02 Feb 2019 10:05:53 +0000</pubDate>
       

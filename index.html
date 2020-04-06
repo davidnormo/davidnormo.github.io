@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta name="generator" content="Hugo 0.53" />
+	<meta name="generator" content="Hugo 0.68.3" />
     	<title>
   davidnormo blog
 </title><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#333333" />
+<link rel="stylesheet" href="/css/syntax.css" />
 <style>
 html { font-size: 18px; }
 body {
@@ -37,11 +38,10 @@ li { margin: 1em 0; }
   line-height: 0.3em;
   margin-bottom: 20px;
 }
-pre {
+.lntable {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  background: #f0f0f0;
   overflow: scroll;
   font-family: Courier;
   font-size: 0.7em;
@@ -49,12 +49,6 @@ pre {
 }
 pre code {
   padding: 0;
-}
-code {
-  font-family: Courier;
-  font-size: 1em;
-  background: #f0f0f0;
-  padding: 3px 5px;
 }
 blockquote {
   border-left: 5px solid #ddd;
@@ -89,56 +83,9 @@ blockquote {
 <i>Principal Software Engineer at Arcadia</i><div id="content">
   
     <article>
-      <a href="https://davidnormo.github.io/posts/partition-on-kata/"><h2>The Partition On Kata</h2></a>
-      <p>Apr 3, 2020</p>
-      The partition on kata is as follows:
- Given the fn partitionOn(predicate, arr) modify array so that all items in the list are re-ordered with all items that fail the predicate are first and all items that pass it follow after. The return value of the the array should be the index of the first item that passed the predicate.
-For example:
-const arr = [1,2,3,4,5] partitionOn(isEven, arr) // =&gt; 3 console.
-    </article>
-    ---
-  
-    <article>
-      <a href="https://davidnormo.github.io/posts/circular-dependencies-js/"><h2>Circular Dependencies</h2></a>
-      <p>Feb 2, 2019</p>
-      <p>Circular or recursive dependencies are modules that eventually depend upon themselves.
-This causes unexpected errors at run time such as module exports seemingly being undefined.</p>
-    </article>
-    ---
-  
-    <article>
-      <a href="https://davidnormo.github.io/posts/transducers/"><h2>Reuse logic, avoid duplication, maintain performance with transducers</h2></a>
-      <p>Oct 21, 2018</p>
-      “What now?” may have been your first reaction. This post looks at how we can use advanced functional concepts to make your code more composable (and therefore reusable!). This is not a new concept but it’s not familiar to a lot of developers especially outside of the Clojure community, where they were invented.
-Transducers aren’t incomprehensible but they require a bit of patience and learning.
-TL;DR Pros: Composable transformation pipelines which are independent of their input and output sources and they perform really well.
-    </article>
-    ---
-  
-    <article>
-      <a href="https://davidnormo.github.io/posts/designing-a-query-lang/"><h2>Designing a Query Lang</h2></a>
-      <p>Aug 10, 2018</p>
-      A little over a year ago, I helped to design a query language (similar to SQL) for users of a wealth management product we were building. I worked on the initial language design and the front end experience while Bruno Felix built the final version and hooked it up to our client&rsquo;s Java backend.
-The potential users of the product would not be DBAs, programmers or even be particularly computer savvy.
-    </article>
-    ---
-  
-    <article>
-      <a href="https://davidnormo.github.io/posts/unit-testing-with-mocks/"><h2>Unit Testing With Mocks</h2></a>
-      <p>Jun 16, 2018</p>
-      <p>At <a href="https://www.assertjs.com/">Assert(js)</a> 2018, Justin Searls (<a href="https://twitter.com/searls">@searls</a>) gave
-a great and balanced talk about the value of mocking. Stop reading. Watch the talk.
-All of it. Or read my <a href="/posts/dont-mock-me-summary/head">Too long didn&rsquo;t watch</a> summary for the more impatient among you
-but the talk is much more entertaining.</p>
-    </article>
-    ---
-  
-    <article>
-      <a href="https://davidnormo.github.io/posts/ecom-fact-base/"><h2>Ecom Fact Base</h2></a>
-      <p>Jan 1, 2018</p>
-      SKU - &ldquo;Stock Keeping Unit&rdquo; is the name for a single product that can be counted as stock. For example a medium blue shirt is a SKU of the blue shirt product of the Shirt category.
- PDP - Product Details Page - The page of the website dedicated to a product that provides customers with information and a way to purchase.
- PLP - Product Listing Page - Fundamentally a PLP allows the user to view multiple products but may also allow the user to change how they see them (filters and sorting) and link to each PDP
+      <a href="https://davidnormo.github.io/posts/"><h2>Posts</h2></a>
+      <p>Jan 1, 0001</p>
+      
     </article>
     ---
   

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Node on davidnormo blog</title>
+    <title>node on davidnormo blog</title>
     <link>https://davidnormo.github.io/tags/node/</link>
-    <description>Recent content in Node on davidnormo blog</description>
+    <description>Recent content in node on davidnormo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Sat, 02 Feb 2019 10:05:53 +0000</lastBuildDate>
