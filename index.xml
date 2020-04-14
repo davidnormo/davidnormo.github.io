@@ -6,10 +6,22 @@
     <description>Recent content on davidnormo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 14:29:31 +0100</lastBuildDate>
     
 	<atom:link href="https://davidnormo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jumping Steps</title>
+      <link>https://davidnormo.github.io/jumping-steps/</link>
+      <pubDate>Tue, 14 Apr 2020 14:29:31 +0100</pubDate>
+      
+      <guid>https://davidnormo.github.io/jumping-steps/</guid>
+      <description>hired.com allows those looking for jobs to complete assessments to improve their prospects. One of the programming problems I had to solve was:
+ A flight of stairs has n steps, you are able to jump 1, 2, or 3 steps at a time.
+How many different ways are you able to climb the stairs in different combinations of jumps?
+E.g. n = 3 then the answer is 4 because: 111, 21, 12, 3</description>
+    </item>
     
     <item>
       <title>The Partition On Kata</title>
