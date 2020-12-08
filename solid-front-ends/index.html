@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>
+  davidnormo blog | SOLID Front Ends
+</title><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#333333" />
+<link rel="stylesheet" href="/css/syntax.css" />
+<style>
+html { font-size: 18px; }
+body {
+  font-family: Trebuchet MS;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 20px;
+  background: #fcfcfc;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  word-wrap: break-word;
+}
+a { color: #333;  }
+h1, h2 { font-family: Garamond, Bookman, Georgia; }
+h1 { font-size: 2em; line-height: 1em; font-weight: normal; }
+h2 { font-size: 2.4em; line-height: 1em; font-weight: normal; }
+li { margin: 1em 0; }
+.title a {
+  font-size: 2.5em;
+  line-height: 1em;
+  font-weight: bold;
+  color: inherit;
+}
+.description {
+  font-size: 0.9em;
+  font-style: italic;
+  line-height: 0.3em;
+  margin-bottom: 20px;
+}
+.lntable {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  overflow: scroll;
+  font-family: Courier;
+  font-size: 0.7em;
+  line-height: 1.7em
+}
+pre code {
+  padding: 0;
+}
+blockquote {
+  border-left: 5px solid #ddd;
+  padding-left: 20px;
+  margin: 40px 10px;
+  font-style: italic;
+}
+@media (max-device-width: 812px) {
+  body {
+    max-width: 100vw;
+    line-height: 1.4em;
+  }
+  h1 {
+     
+     
+  }
+  img {
+    width: 100%
+  }
+}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51391788-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-51391788-2');
+</script>
+<meta property="og:image" content="/img/david-normington.jpeg" /></head>
+    <body><a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+<i>Principal Software Engineer at Arcadia</i><div id="content">
+  <h2>SOLID Front Ends</h2>
+  <p>Oct 1, 2020</p>
+  <p>When the <a href="https://en.wikipedia.org/wiki/SOLID">SOLID principles</a> are mentioned it may bring to mind an old school programming philosophy. Back in the days where everything was OOP, Java was defacto and functional programming an academic exercise.</p>
+<p>But as the world of Front End development expands, functional programming has gained more of a mainstream focus. It&rsquo;s common place to avoid mutation, perferring immutable data structures (at least by convention). Pure functions over objects. And more careful approach to handling side effects (redux-thunk or more recently React hooks).</p>
+<p>It&rsquo;s easy to leave behind the &ldquo;old&rdquo; ways, design patterns, principles, XP etc and feel that our new practises have no need for those archaic ideas. After all, isn&rsquo;t our code better than it was 5 years ago? Surely it&rsquo;s an order of magnatude better than 10 years ago?!</p>
+<p>And there&rsquo;s an element of truth to it. Yes, things have improved. Not having to deal with a spaghetti mess of mutation is certainly easier. But now that enough time has passed to see sizeable code bases built in our preferred functinal paradigm I feel we&rsquo;ve lost some of the hard won lessons of the past.</p>
+<p>The bricks of our programs have gotten simpler but the larger buildings which they a composed with still suffer some of the same problems that the OOP era solved.</p>
+<h3 id="but-solid-really">&hellip;but SOLID? Really?</h3>
+<p>The good news is that the lessons are transferrable. SOLID principles while in the detail describe solutions to OOP problems, in spirit they are good general programming advice. And they help to address wider system problems. Perhaps we can have the best of both worlds. Our new found love of the functional and the structure/decoupling from the past.</p>
+<h3 id="s-for-single-responsibility">S for Single Responsibility</h3>
+<p>The Single Responsiblity Principle (SRP) in spirit says that a function/class/module should do one thing. If we have to change the code then we are only changing it for one reason.</p>
+<p>For example, if I have a function that handles all requests to a server&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="p">{</span> <span class="nx">method</span> <span class="o">=</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">createUrl</span><span class="p">(</span><span class="nx">SERVER_BASE_PATH</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span> <span class="nx">method</span> <span class="p">})</span>
+  <span class="k">return</span> <span class="nx">await</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>&hellip;I will only change it when all requests to that server need changing in some way i.e. a new header.</p>
+<p>If that function also handles a singular case of a request such as for a specific endpoint then it breaks SRP. That&rsquo;s bad because now the code has 2 reasons to change. The code has become more complex and there&rsquo;s more risk. If I have to change that code it is more likely that I break something for either the general GET requests or for this specific endpoint.</p>
+<h3 id="o-for-openclosed">O for Open/Closed</h3>
+<h3 id="l-for-liskov">L for Liskov</h3>
+<h3 id="i-for-interface-segregation">I for Interface Segregation</h3>
+<h3 id="d-for-depedency-inversion">D for Depedency Inversion</h3>
+
+
+        </div></body>
+</html>
