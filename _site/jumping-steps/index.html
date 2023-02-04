@@ -1,490 +1,134 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    	<title>
-  davidnormo blog | Jumping Steps
-</title><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#333333" />
-<link rel="stylesheet" href="/css/syntax.css" />
-<style>
-html { font-size: 18px; }
-body {
-  font-family: Trebuchet MS;
-  font-size: 1em;
-  line-height: 1.4em;
-  padding: 20px;
-  background: #fcfcfc;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto;
-  box-sizing: content-box;
-  word-wrap: break-word;
-}
-a { color: #333;  }
-h1, h2 { font-family: Garamond, Bookman, Georgia; }
-h1 { font-size: 2em; line-height: 1em; font-weight: normal; }
-h2 { font-size: 2.4em; line-height: 1em; font-weight: normal; }
-li { margin: 1em 0; }
-.title a {
-  font-size: 2.5em;
-  line-height: 1em;
-  font-weight: bold;
-  color: inherit;
-}
-.description {
-  font-size: 0.9em;
-  font-style: italic;
-  line-height: 0.3em;
-  margin-bottom: 20px;
-}
-.lntable {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-  overflow: scroll;
-  font-family: Courier;
-  font-size: 0.7em;
-  line-height: 1.7em
-}
-pre code {
-  padding: 0;
-}
-blockquote {
-  border-left: 5px solid #ddd;
-  padding-left: 20px;
-  margin: 40px 10px;
-  font-style: italic;
-}
-@media (max-device-width: 812px) {
-  body {
-    max-width: 100vw;
-    line-height: 1.4em;
-  }
-  h1 {
-     
-     
-  }
-  img {
-    width: 100%
-  }
-}
-</style>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51391788-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-51391788-2');
-</script>
-<meta property="og:image" content="/img/david-normington.jpeg" /></head>
-    <body><a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
-<i>Principal Software Engineer at Arcadia</i><div id="content">
-  <h2>Jumping Steps</h2>
-  <p>Apr 14, 2020</p>
-  <p>hired.com allows those looking for jobs to complete assessments to improve their
-prospects. One of the programming problems I had to solve was:</p>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+      html {
+        font-size: 18px;
+      }
+      body {
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.4em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+        box-sizing: content-box;
+        word-wrap: break-word;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h2 {
+        font-size: 2.4em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      li {
+        margin: 1em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre code {
+        padding: 0;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      @media (max-device-width: 812px) {
+        body {
+          max-width: 100vw;
+          line-height: 1.4em;
+        }
+        h1 {
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <i>Senior Software Engineer at T. Rowe Price</i>
+    <div id="content"><h2>Jumping Steps</h2>
+<p>Apr 14, 2020</p>
+<p>hired.com allows those looking for jobs to complete assessments to improve their prospects. One of the programming problems I had to solve was:</p>
 <blockquote>
 <p>A flight of stairs has <code>n</code> steps, you are able to jump 1, 2, or 3 steps at a time.</p>
 <p>How many different ways are you able to climb the stairs in different combinations of jumps?</p>
 <p>E.g. n = 3 then the answer is 4 because: 111, 21, 12, 3</p>
 </blockquote>
-<p>Somewhere in the back of my mind some maths with combinations and permutations came to mind.
-This seemed like the best approach to start with because the math would be much faster than
-the brute force approach.</p>
-<p>But what was the equation? What it <code>n</code> factorial? Kind of, but there was something
-about only stepping 1, 2 or 3 steps at a time. I spent a <em>long</em> time doing some
-trial and error. I did not get very far.</p>
-<p>I decided to reassess. How hard would it be to brute force the solution? To generate
-all possible combinations and count them?</p>
+<p>Somewhere in the back of my mind some maths with combinations and permutations came to mind. This seemed like the best approach to start with because the math would be much faster than the brute force approach.</p>
+<p>But what was the equation? What it <code>n</code> factorial? Kind of, but there was something about only stepping 1, 2 or 3 steps at a time. I spent a <em>long</em> time doing some trial and error. I did not get very far.</p>
+<p>I decided to reassess. How hard would it be to brute force the solution? To generate all possible combinations and count them?</p>
 <p>I started by writing down the results by hand:</p>
 <blockquote>
 <p>n = 3</p>
-<p>111
-21
-12
-3</p>
+<p>111 21 12 3</p>
 <p>answer: 4</p>
 <hr>
 <p>n = 4</p>
-<p>1111
-211
-121
-112
-22
-31
-13</p>
+<p>1111 211 121 112 22 31 13</p>
 <p>answer: 7</p>
 <hr>
 <p>n = 5</p>
-<p>11111
-2111
-1211
-1121
-1112
-221
-212
-122
-311
-131
-113
-32
-23</p>
+<p>11111 2111 1211 1121 1112 221 212 122 311 131 113 32 23</p>
 <p>answer: 13</p>
 </blockquote>
 <p>At this point my mind had a pattern for working out the answers.</p>
-<p>All of them started with a string of 1s, <code>n</code> long. From their I replaced 1s with
-a 2 and ran through the different permutations: 111, 21, 12</p>
-<p>Then I&rsquo;d do the same but for 3 and find those permutations.</p>
+<p>All of them started with a string of 1s, <code>n</code> long. From their I replaced 1s with a 2 and ran through the different permutations: 111, 21, 12</p>
+<p>Then I’d do the same but for 3 and find those permutations.</p>
 <p>The results formed a tree that I could build recursively. So I started coding!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">solution</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)).</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">solution</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token function">consumeAndIterate</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token function">Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>The funny array expression is Javascripts silly way of filling a new fixed length array with values. <code>consumeAndIterate</code> will be my poorly named, recursive function. It will return an array with all the possible combinations, so returning the length with get me the final count.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// But what do go here?</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>After I got the frame of the code out of the way, I stopped to think. How do I go from <code>'111' =&gt; '21'</code>? Well, I can add the current index and add it with the next and if they make 2 add it to my results array.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"2"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>I hit a bug already. This works for <code>'111' =&gt; '21'</code> but not <code>'12'</code> because I’m not adding the substring onto the front of the string before pushing it into the results array.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"2"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Ok great. So how about <code>'111' =&gt; '3'</code>…</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"2"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"3"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>So for <code>n</code> = 3 this works. In terms of our tree, there is only 2 levels:</p>
+<pre class="language-text"><code class="language-text">    111<br>     ---------<br>     |   |   |<br>    21  12   3</code></pre>
+<p>But if <code>n</code> = 4 then the tree would look like:</p>
+<pre class="language-text"><code class="language-text">    1111<br>     -----------------<br>     |   |   |   |   |<br>    211 121 112  31  13<br>     |<br>     22</code></pre>
+<p>This is where the recursion needs to come into play:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><br>        <span class="token operator">...</span><span class="token function">consumeAndIterate</span><span class="token punctuation">(</span><br>          n<span class="token punctuation">,</span><br>          str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"2"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span><br>      <span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><br>        <span class="token operator">...</span><span class="token function">consumeAndIterate</span><span class="token punctuation">(</span><br>          n<span class="token punctuation">,</span><br>          str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"3"</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span><br>      <span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Another bug!</p>
+<pre class="language-js"><code class="language-js"><span class="token function">consumeAndIterate</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">"1111"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// => ["1111", "211", "22", "31", "121", "13", "112", "22"]</span><br><span class="token comment">// notice "22" repeated!</span></code></pre>
+<p>My solution at this point was to take this resulting array and remove duplicate values before returngin the length:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">uniq</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><br>  arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    obj<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">solution</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// start recursing with string of 1s</span><br>  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token function">consumeAndIterate</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token function">Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// results aren't unqiue!</span><br>  <span class="token keyword">return</span> <span class="token function">uniq</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>That works but it isn’t the cleanest solution. We could prevent duplicate values from being added to the <code>results</code> array in <code>consumeAndIterate</code> if it knew which values had already been added…</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">replaceIndexWithNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">str<span class="token punctuation">,</span> i<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> num <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i <span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">consumeAndIterate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> str<span class="token punctuation">,</span> results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  results<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> add2 <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">const</span> strWith2 <span class="token operator">=</span> <span class="token function">replaceIndexWithNum</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> i<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>add2 <span class="token operator">===</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>results<span class="token punctuation">[</span>strWith2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token function">consumeAndIterate</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> strWith2<span class="token punctuation">,</span> results<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">const</span> add3 <span class="token operator">=</span> add2 <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">const</span> strWith3 <span class="token operator">=</span> <span class="token function">replaceIndexWithNum</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> i<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>add3 <span class="token operator">===</span> <span class="token number">3</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>results<span class="token punctuation">[</span>strWith3<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token function">consumeAndIterate</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> strWith3<span class="token punctuation">,</span> results<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">return</span> results<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">solution</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// start recursing with string of 1s</span><br>  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">consumeAndIterate</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token function">Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </div>
-</div><p>The funny array expression is Javascripts silly way of filling a new fixed length
-array with values. <code>consumeAndIterate</code> will be my poorly named, recursive function.
-It will return an array with all the possible combinations, so returning the length
-with get me the final count.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[]</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// But what do go here?
-</span><span class="c1"></span>  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>After I got the frame of the code out of the way, I stopped to think. How do I go from <code>'111' =&gt; '21'</code>?
-Well, I can add the current index and add it with the next and if they make 2 add it to my results array.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[</span><span class="nx">str</span><span class="p">]</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>I hit a bug already. This works for <code>'111' =&gt; '21'</code> but not <code>'12'</code> because I&rsquo;m not
-adding the substring onto the front of the string before pushing it into the results
-array.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[</span><span class="nx">str</span><span class="p">]</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;2&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Ok great. So how about <code>'111' =&gt; '3'</code>&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[</span><span class="nx">str</span><span class="p">]</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;2&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;3&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>So for <code>n</code> = 3 this works. In terms of our tree, there is only 2 levels:</p>
-<pre><code>111
- ---------
- |   |   |
-21  12   3
-</code></pre><p>But if <code>n</code> = 4 then the tree would look like:</p>
-<pre><code>1111
- -----------------
- |   |   |   |   |
-211 121 112  31  13
- |
- 22
-</code></pre><p>This is where the recursion needs to come into play:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[</span><span class="nx">str</span><span class="p">]</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;2&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;3&#39;</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)))</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Another bug!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">consumeAndIterate</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;1111&#39;</span><span class="p">)</span>
-<span class="c1">// =&gt; [&#34;1111&#34;, &#34;211&#34;, &#34;22&#34;, &#34;31&#34;, &#34;121&#34;, &#34;13&#34;, &#34;112&#34;, &#34;22&#34;]
-</span><span class="c1">// notice &#34;22&#34; repeated!
-</span></code></pre></td></tr></table>
-</div>
-</div><p>My solution at this point was to take this resulting array and remove duplicate values before returngin the length:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">uniq</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="p">})</span>
-  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">solution</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// start recursing with string of 1s
-</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
-  <span class="c1">// results aren&#39;t unqiue!
-</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">uniq</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>That works but it isn&rsquo;t the cleanest solution. We could prevent duplicate values
-from being added to the <code>results</code> array in <code>consumeAndIterate</code> if it knew which
-values had already been added&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">replaceIndexWithNum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="nx">num</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="nx">num</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">results</span><span class="p">[</span><span class="nx">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">add2</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-    <span class="kr">const</span> <span class="nx">strWith2</span> <span class="o">=</span> <span class="nx">replaceIndexWithNum</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">add2</span> <span class="o">===</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">results</span><span class="p">[</span><span class="nx">strWith2</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">strWith2</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kr">const</span> <span class="nx">add3</span> <span class="o">=</span> <span class="nx">add2</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
-    <span class="kr">const</span> <span class="nx">strWith3</span> <span class="o">=</span> <span class="nx">replaceIndexWithNum</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">add3</span> <span class="o">===</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">results</span><span class="p">[</span><span class="nx">strWith3</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">strWith3</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Ok so now <code>consumeAndIterate</code> passes around the reference to <code>results</code> (which is
-now an object not an array, property lookup instead of looping through elements).</p>
-<p>So now the <code>solution</code> fn can be cleaned up</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">solution</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// start recursing with string of 1s
-</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
-  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Here is my solution in full:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">replaceIndexWithNum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span><span class="o">+</span><span class="nx">num</span><span class="o">+</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="nx">num</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">consumeAndIterate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">results</span><span class="p">[</span><span class="nx">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">add2</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-    <span class="kr">const</span> <span class="nx">strWith2</span> <span class="o">=</span> <span class="nx">replaceIndexWithNum</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">add2</span> <span class="o">===</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">results</span><span class="p">[</span><span class="nx">strWith2</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">strWith2</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="kr">const</span> <span class="nx">add3</span> <span class="o">=</span> <span class="nx">add2</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
-    <span class="kr">const</span> <span class="nx">strWith3</span> <span class="o">=</span> <span class="nx">replaceIndexWithNum</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">add3</span> <span class="o">===</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">results</span><span class="p">[</span><span class="nx">strWith3</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">strWith3</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="nx">results</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">solution</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// start recursing with string of 1s
-</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">consumeAndIterate</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
-  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-
-        </div></body>
+  </body>
 </html>

@@ -1,192 +1,103 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    	<title>
-  davidnormo blog | The Partition On Kata
-</title><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#333333" />
-<link rel="stylesheet" href="/css/syntax.css" />
-<style>
-html { font-size: 18px; }
-body {
-  font-family: Trebuchet MS;
-  font-size: 1em;
-  line-height: 1.4em;
-  padding: 20px;
-  background: #fcfcfc;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto;
-  box-sizing: content-box;
-  word-wrap: break-word;
-}
-a { color: #333;  }
-h1, h2 { font-family: Garamond, Bookman, Georgia; }
-h1 { font-size: 2em; line-height: 1em; font-weight: normal; }
-h2 { font-size: 2.4em; line-height: 1em; font-weight: normal; }
-li { margin: 1em 0; }
-.title a {
-  font-size: 2.5em;
-  line-height: 1em;
-  font-weight: bold;
-  color: inherit;
-}
-.description {
-  font-size: 0.9em;
-  font-style: italic;
-  line-height: 0.3em;
-  margin-bottom: 20px;
-}
-.lntable {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-  overflow: scroll;
-  font-family: Courier;
-  font-size: 0.7em;
-  line-height: 1.7em
-}
-pre code {
-  padding: 0;
-}
-blockquote {
-  border-left: 5px solid #ddd;
-  padding-left: 20px;
-  margin: 40px 10px;
-  font-style: italic;
-}
-@media (max-device-width: 812px) {
-  body {
-    max-width: 100vw;
-    line-height: 1.4em;
-  }
-  h1 {
-     
-     
-  }
-  img {
-    width: 100%
-  }
-}
-</style>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51391788-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-51391788-2');
-</script>
-<meta property="og:image" content="/img/david-normington.jpeg" /></head>
-    <body><a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
-<i>Principal Software Engineer at Arcadia</i><div id="content">
-  <h2>The Partition On Kata</h2>
-  <p>Apr 3, 2020</p>
-  <p>The partition on kata is as follows:</p>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+      html {
+        font-size: 18px;
+      }
+      body {
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.4em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+        box-sizing: content-box;
+        word-wrap: break-word;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h2 {
+        font-size: 2.4em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      li {
+        margin: 1em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre code {
+        padding: 0;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      @media (max-device-width: 812px) {
+        body {
+          max-width: 100vw;
+          line-height: 1.4em;
+        }
+        h1 {
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <i>Senior Software Engineer at T. Rowe Price</i>
+    <div id="content"><h2>The Partition On Kata</h2>
+<p>Apr 3, 2020</p>
+<p>The partition on kata is as follows:</p>
 <blockquote>
-<p>Given the fn <code>partitionOn(predicate, arr)</code> modify array so that all items in the
-list are re-ordered with all items that fail the predicate are first and all items
-that pass it follow after. The return value of the the array should be the
-index of the first item that passed the predicate.</p>
+<p>Given the fn <code>partitionOn(predicate, arr)</code> modify array so that all items in the list are re-ordered with all items that fail the predicate are first and all items that pass it follow after. The return value of the the array should be the index of the first item that passed the predicate.</p>
 <p>For example:</p>
-<p>const arr = [1,2,3,4,5]
-partitionOn(isEven, arr) // =&gt; 3
-console.log(arr) // =&gt; [1,3,5,2,4]</p>
+<p>const arr = [1,2,3,4,5] partitionOn(isEven, arr) // =&gt; 3 console.log(arr) // =&gt; [1,3,5,2,4]</p>
 </blockquote>
 <p>(My solutions below are in Javascript)</p>
-<p>I&rsquo;ve seen many solutions to this kata that try to make 2 separate arrays,
-one that pass the predicate and one that fail and then merge the 2 arrays at the end:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">partitionOn</span><span class="p">(</span><span class="nx">predicate</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="o">!</span><span class="nx">pred</span><span class="p">(</span><span class="nx">e</span><span class="p">))</span>
-  <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">pred</span><span class="p">)</span>
-  <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">f</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">f</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">t</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-  <span class="k">return</span> <span class="nx">f</span><span class="p">.</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>While this code looks asthetically pleasing (something to do with the double
-filter statements, followed by double for loops), it&rsquo;s not very performant. It&rsquo;s
-still O(n) but multiple subsequent loops won&rsquo;t be great for long arrays.</p>
+<p>I’ve seen many solutions to this kata that try to make 2 separate arrays, one that pass the predicate and one that fail and then merge the 2 arrays at the end:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">partitionOn</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">let</span> f <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">!</span><span class="token function">pred</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">let</span> t <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>pred<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  arr<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> f<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> t<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> f<span class="token punctuation">.</span>length<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>While this code looks asthetically pleasing (something to do with the double filter statements, followed by double for loops), it’s not very performant. It’s still O(n) but multiple subsequent loops won’t be great for long arrays.</p>
 <p>There is a variation of this approach without the additional loops:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">partitionOn</span><span class="p">(</span><span class="nx">predicate</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">[];</span>
-  <span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">){</span>
-    <span class="nx">pred</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">?</span> <span class="nx">t</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">:</span> <span class="nx">f</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
-  <span class="p">})</span>
-  <span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">...</span><span class="nx">f</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">t</span><span class="p">))</span>
-  <span class="k">return</span> <span class="nx">f</span><span class="p">.</span><span class="nx">length</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Not bad. In terms of CPU performance it&rsquo;s pretty good but memory? We have to allocate
-extra space for the pass and fail arrays. It&rsquo;s still O(n) for memory but we can do better.</p>
-<p>What if we don&rsquo;t try to make 2 separate arrays. Can we change the array in place?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">partitionOn</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>    f <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br>  items<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">pred</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> t<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">:</span> f<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  items<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><br>  items<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">...</span>f<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> f<span class="token punctuation">.</span>length<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Not bad. In terms of CPU performance it’s pretty good but memory? We have to allocate extra space for the pass and fail arrays. It’s still O(n) for memory but we can do better.</p>
+<p>What if we don’t try to make 2 separate arrays. Can we change the array in place?</p>
 <p>Here is my attempt:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">partitionOn</span><span class="p">(</span><span class="nx">predicate</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">predicate</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">continue</span>
-
-    <span class="nx">b</span><span class="o">++</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">b</span> <span class="o">===</span> <span class="nx">i</span><span class="p">)</span> <span class="k">continue</span>
-
-    <span class="kd">let</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-    <span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">b</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Don&rsquo;t be put off by the for loop and continue statements! We have a more performant
-algorithm in both CPU and memory. The algorithm is essentially this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">partitionOn</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">predicate</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><br><br>    b<span class="token operator">++</span><span class="token punctuation">;</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">===</span> i<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">let</span> val <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><br>    arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> b <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Don’t be put off by the for loop and continue statements! We have a more performant algorithm in both CPU and memory. The algorithm is essentially this:</p>
 <ol>
 <li>Initialise <code>b</code> to -1</li>
 <li>For each item in array</li>
@@ -196,9 +107,7 @@ algorithm in both CPU and memory. The algorithm is essentially this:</p>
 <li>Insert item into array at position <code>b</code></li>
 <li>return <code>b</code> plus 1</li>
 </ol>
-<p>While the code may not be as pleasing and there is no use of those popular filter
-or forEach functions, the simple for loop makes for faster code.</p>
-
-
-        </div></body>
+<p>While the code may not be as pleasing and there is no use of those popular filter or forEach functions, the simple for loop makes for faster code.</p>
+</div>
+  </body>
 </html>
