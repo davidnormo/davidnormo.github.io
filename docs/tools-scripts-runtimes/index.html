@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+      html {
+        font-size: 18px;
+      }
+      body {
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.4em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+        box-sizing: content-box;
+        word-wrap: break-word;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h2 {
+        font-size: 2.2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      li {
+        margin: 1em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre code {
+        padding: 0;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      @media (max-device-width: 812px) {
+        body {
+          max-width: 100vw;
+          line-height: 1.4em;
+        }
+        h1 {
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <i>Senior Software Engineer at T. Rowe Price</i>
+    <div id="content"><h1>Tools Scripts Runtimes</h1>
+<p>This is a personal reference of tools/scripts/runtimes/package managers etc that I use with some setup instructions.</p>
+<h2>Homebrew</h2>
+<p><a href="https://brew.sh/">https://brew.sh/</a></p>
+<pre class="language-bash"><code class="language-bash">$ /bin/bash <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span></code></pre>
+<h2>git</h2>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> <span class="token function">git</span></code></pre>
+<p>My .gitconfig</p>
+<script src="https://gist.github.com/davidnormo/52eb8a325706959f63fd2be0bba390e5.js"></script>
+<h2>tig</h2>
+<p><a href="https://jonas.github.io/tig/">https://jonas.github.io/tig/</a></p>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> tig</code></pre>
+<h2>tmux</h2>
+<p><a href="https://github.com/tmux/tmux/wiki">https://github.com/tmux/tmux/wiki</a></p>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> tmux</code></pre>
+<p>My .tmux.conf:</p>
+<script src="https://gist.github.com/davidnormo/a361d38eac62707941e7098eb98587f5.js"></script>
+<h2>zsh</h2>
+<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> <span class="token function">zsh</span><br>$ chsh <span class="token parameter variable">-s</span> /usr/local/bin/zsh<br>$ brew <span class="token function">install</span> romkatv/powerlevel10k/powerlevel10k</code></pre>
+<p>My .zshrc</p>
+<script src="https://gist.github.com/davidnormo/db7c74a5a4400732ab2c45bf2528a7bb.js"></script>
+<h2>Node (fnm)</h2>
+<p><a href="https://github.com/Schniz/fnm">https://github.com/Schniz/fnm</a></p>
+<p>Install Node.js and <code>npm</code></p>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> fnm<br>$ fnm use <span class="token number">16</span></code></pre>
+<h2>vim</h2>
+<p>Install a more recent version of vim. I used to have a fairly sophisticated .vimrc but now I just use it bare bones because I use VSCode as my code editor</p>
+<pre class="language-bash"><code class="language-bash">$ brew <span class="token function">install</span> <span class="token function">vim</span></code></pre>
+<h2>VSCode</h2>
+<p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p>Download the latest version from the website. If you signin then you can choose to sync all your settings 🎉</p>
+</div>
+  </body>
+</html>
