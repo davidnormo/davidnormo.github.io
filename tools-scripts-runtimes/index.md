@@ -3,7 +3,8 @@ layout: base.njk
 tags: post
 title: Tools Scripts Runtimes
 date: 2023-02-01
-summary: ...
+summary: This is a personal reference of tools/scripts/runtimes/package managers etc that I use with some setup instructions.
+
 ---
 
 # Tools Scripts Runtimes
