@@ -10,7 +10,7 @@ Built with [`eleventy`](https://www.11ty.dev/)
 ```bash
 $ git pull --rebase        # in case I've made changes somewhere else
                            # ... make changes on master
-$ npm build                # to build the static files
+$ npm run build                # to build the static files
 $ git add .                # to add any new files (also manually delete files you've removed)
 $ git commit -am "..."     # anything will do
 $ git push                 # Push to deploy to github pages

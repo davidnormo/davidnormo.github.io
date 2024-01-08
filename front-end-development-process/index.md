@@ -4,8 +4,9 @@ tags: post
 title: Front End Development Process
 date: 2023-02-14
 summary: "..."
-# eleventyExcludeFromCollections: true
-# permalink: false
+draft: true
+eleventyExcludeFromCollections: true
+permalink: false
 ---
 
 # Front End Development Process
@@ -23,9 +24,10 @@ I've split out each process by activity type (feature/bug/refactor) and tried to
 Steps:
 
 1. [Scope/Requirements/Understanding](#feature-scope)
-2. Test/Code/Refactor
-3. Explorative testing
-4. Deploy
+2. [Test/Code/Refactor](#feature-code)
+3. [Explorative testing](#feature-explorative-testing)
+4. [Code review](#feature-review)
+5. [Deploy](#deploy)
 
 ### <a name="feature-scope"></a>Scope/Requirements/Understanding
 
@@ -77,26 +79,36 @@ Example:
 
 <details>
 <summary>Other considerations...</summary>
-- What are the edge cases? (e.g. network timeouts and errors, browser back button)
-- UX considerations?
-- Are there any liscencing considerations?
-- Performance considerations? (page load, bundle size)
-- Runtime/efficiency considerations? (CPU/Memory/IO)
-- Security considerations? (parse inputs, escape outputs, cookies, information leaking etc)
-- Privacy considerations? (personal data, sensitve data e.g. credit card numbers)
-- Audit/logging/maintenance considerations?
-- Accessibility?
-- Does this require a feature flag?
-- Does this conflict with existing functionality?
-- Are the dependent assets ready? (images, UX wireframes, fonts etc)
-- How much time am I expected to spend working on it?
+- What are the edge cases? (e.g. network timeouts and errors, browser back button)<br />
+- UX considerations?<br />
+- Are there any liscencing considerations?<br />
+- Performance considerations? (page load, bundle size)<br />
+- Runtime/efficiency considerations? (CPU/Memory/IO)<br />
+- Security considerations? (parse inputs, escape outputs, cookies, information leaking etc)<br />
+- Privacy considerations? (personal data, sensitve data e.g. credit card numbers)<br />
+- Audit/logging/maintenance considerations?<br />
+- Accessibility?<br />
+- Does this require a feature flag?<br />
+- Does this conflict with existing functionality?<br />
+- Are the dependent assets ready? (images, UX wireframes, fonts etc)<br />
+- How much time am I expected to spend working on it?<br />
 </details>
 
-### Test/Code/Refactor
+### <a name="feature-code"></a>Test/Code/Refactor
 
-### Explorative testing
+TBC
 
-Once the bulk of the work is done, you probably have most of the
+### <a name="feature-explorative-testing"></a>Explorative testing
+
+Once the bulk of the work is done, you probably have the main cases done. The temptation here is to jump to the code review step but you need to resist the urge and do some thorough testing of your own. Be responsible. Don't let others find things you've missed without checking.
+
+### <a name="feature-review"></a>Code Review
+
+A good code review is one that you'd be happy to review yourself. There's a good middle ground between not enough detail and too much detail.
+
+### <a name="feature-deploy"></a>Deploy
+
+TBC
 
 ## Bug
 
