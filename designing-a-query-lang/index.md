@@ -22,12 +22,16 @@ I prototyped the query language in Javascript in a day or so, which pulled data 
 
 An example query may have been:
 
-    get crypto where price > 200m
+```text
+get crypto where price > 200m
+```
 
 This would roughly translate to:
 
-    # Aggregate the position records (sum) and filter (where) the aggregates by those greater than 200 million.
-    SELECT * from (SELECT SUM(price) from Positions) where price > 200000000
+```sql
+# Aggregate the position records (sum) and filter (where) the aggregates by those greater than 200 million.
+SELECT * from (SELECT SUM(price) from Positions) where price > 200000000
+```
 
 We knew ahead of time that there was a limited number of columns and we knew the types of the columns which meant that we could infer the column aggregate function (sum, concat etc). That meant less syntax for the end user to learn, win!
 
