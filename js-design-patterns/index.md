@@ -11,18 +11,20 @@ draft: false
 
 Code design patterns have helped to build a language for constructing code in a way that people can understand and agree upon. However most of the examples of these patterns aren't used in Javascript which is where I spend most of my working time. Some of these patterns are used but they have a different expression in JS. So I thought I would document some of these using their original names but show examples of how I would expect these patterns to be expressed in JS.
 
-I may add to this list over time. If you have a suggested change or contribution feel free to open an issue on the github repo for this site: https://github.com/davidnormo/davidnormo.github.io
+I may add to this list over time. If you have a suggested change or contribution feel free to open an [issue on the github repo for this site](https://github.com/davidnormo/davidnormo.github.io).
 
-## Contents
+## Patterns
 
 - [Command](#command)
 - [Strategy](#strategy)
 
+<span id="command"></span>
+
 ## Command
 
-[What is the Command pattern?](https://refactoring.guru/design-patterns/command)
+[Link to Command pattern](https://refactoring.guru/design-patterns/command)
 
-In JS it't more typical to use a **callback** rather than a class. If there are many commands of the same type then the can be unified with a TS interface:
+In JS it's more typical to use a **callback** rather than a class. If there are many commands of the same type then the can be unified with a TS interface:
 
 ```ts
 const handleSave = () => {
@@ -42,9 +44,11 @@ const renderToolbar = (opts: Options) => {
 };
 ```
 
+<span id="strategy"></span>
+
 ## Strategy
 
-[What is the Strategy pattern?](https://refactoring.guru/design-patterns/strategy)
+[Link to Strategy pattern](https://refactoring.guru/design-patterns/strategy)
 
 In JS, we may use typescript interfaces still but it probably wouldn't be classes. The most common expression of the Strategy I've seen is to use an object to store the group of strategies and then to access them by some key:
 

@@ -111,6 +111,9 @@ layout: base.njk
     align-items: center;
   }
 }
+article {
+  margin-bottom: 4rem;
+}
 </style>
 
 <div class="fullWidth fullHeight">

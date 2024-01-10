@@ -7,12 +7,12 @@
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
     <style>
       html {
-        font-size: 18px;
+        font-size: 15px;
       }
       body {
         font-family: Trebuchet MS;
         font-size: 1em;
-        line-height: 1.4em;
+        line-height: 1.6em;
         padding: 20px;
         background: #fcfcfc;
         color: #333;
@@ -37,7 +37,7 @@
         text-decoration: none;
       }
       h2 {
-        font-size: 2.2em;
+        font-size: 1.7em;
         line-height: 1em;
         font-weight: normal;
       }
@@ -45,7 +45,7 @@
         margin-top: 2em;
       }
       li {
-        margin: 1em 0;
+        margin: 0.5em 0;
       }
       .title a {
         font-size: 2.5em;
@@ -58,6 +58,9 @@
         font-style: italic;
         line-height: 0.3em;
         margin-bottom: 20px;
+      }
+      pre {
+        font-size: 13px!important;
       }
       pre code {
         padding: 0;
@@ -96,18 +99,20 @@
     <p>Software Engineer</p>
     <div id="content"><h1>JS Design Patterns</h1>
 <p>Code design patterns have helped to build a language for constructing code in a way that people can understand and agree upon. However most of the examples of these patterns aren't used in Javascript which is where I spend most of my working time. Some of these patterns are used but they have a different expression in JS. So I thought I would document some of these using their original names but show examples of how I would expect these patterns to be expressed in JS.</p>
-<p>I may add to this list over time. If you have a suggested change or contribution feel free to open an issue on the github repo for this site: https://github.com/davidnormo/davidnormo.github.io</p>
-<h2>Contents</h2>
+<p>I may add to this list over time. If you have a suggested change or contribution feel free to open an <a href="https://github.com/davidnormo/davidnormo.github.io">issue on the github repo for this site</a>.</p>
+<h2>Patterns</h2>
 <ul>
 <li><a href="#command">Command</a></li>
 <li><a href="#strategy">Strategy</a></li>
 </ul>
+<p><span id="command"></span></p>
 <h2>Command</h2>
-<p><a href="https://refactoring.guru/design-patterns/command">What is the Command pattern?</a></p>
-<p>In JS it't more typical to use a <strong>callback</strong> rather than a class. If there are many commands of the same type then the can be unified with a TS interface:</p>
+<p><a href="https://refactoring.guru/design-patterns/command">Link to Command pattern</a></p>
+<p>In JS it's more typical to use a <strong>callback</strong> rather than a class. If there are many commands of the same type then the can be unified with a TS interface:</p>
 <pre class="language-ts"><code class="language-ts"><span class="token keyword">const</span> <span class="token function-variable function">handleSave</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// ... do something ...</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><br><span class="token comment">// In this example `renderToolbar` isn't aware of how to save but hands it off to `handleSave`</span><br><span class="token function">renderToolbar</span><span class="token punctuation">(</span><span class="token punctuation">{</span> onSave<span class="token operator">:</span> handleSave <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// In a lot of cases there isn't a generic interface for callbacks that can be used interchangeably but when</span><br><span class="token comment">// needed `renderToolbar` can define the type for it:</span><br><br><span class="token comment">// renderToolbar.ts</span><br><span class="token keyword">type</span> <span class="token class-name">Options</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function-variable function">onSave</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">></span> <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">renderToolbar</span> <span class="token operator">=</span> <span class="token punctuation">(</span>opts<span class="token operator">:</span> Options<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// ...</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p><span id="strategy"></span></p>
 <h2>Strategy</h2>
-<p><a href="https://refactoring.guru/design-patterns/strategy">What is the Strategy pattern?</a></p>
+<p><a href="https://refactoring.guru/design-patterns/strategy">Link to Strategy pattern</a></p>
 <p>In JS, we may use typescript interfaces still but it probably wouldn't be classes. The most common expression of the Strategy I've seen is to use an object to store the group of strategies and then to access them by some key:</p>
 <pre class="language-ts"><code class="language-ts"><span class="token comment">// navigateBy.ts</span><br><span class="token keyword">enum</span> NavigateType <span class="token operator">=</span> <span class="token punctuation">{</span><br>  walk <span class="token operator">=</span> <span class="token string">'walk'</span><span class="token punctuation">;</span><br>  road <span class="token operator">=</span> <span class="token string">'road'</span><span class="token punctuation">;</span><br>  sea <span class="token operator">=</span> <span class="token string">'sea'</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token keyword">type</span> <span class="token class-name">Navigation</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">;</span><br><br><span class="token comment">// `navigation` is an object that maps a navigation type string to a navigation function</span><br><span class="token comment">// The Navigation type here enforces that all members match it. You can't add a function that doesn't match the type.</span><br><span class="token keyword">const</span> navigation<span class="token operator">:</span> Record<span class="token operator">&lt;</span>NavigateType<span class="token punctuation">,</span> Navigation<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  walk<span class="token operator">:</span> walkNavigation<span class="token punctuation">,</span><br>  road<span class="token operator">:</span> roadNavigation<span class="token punctuation">,</span><br>  sea<span class="token operator">:</span> seaNavigation<span class="token punctuation">,</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// `navigateBy` calls the given navigation type function with the given parameters</span><br><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">navigateBy</span> <span class="token operator">=</span> <span class="token punctuation">(</span>type<span class="token operator">:</span> NavigateType<span class="token punctuation">,</span> a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  navigation<span class="token punctuation">[</span>type<span class="token punctuation">]</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// Alternatively we can just get the navigation function like this...</span><br><span class="token keyword">export</span> <span class="token keyword">const</span> getNavigation <span class="token operator">=</span> <span class="token punctuation">(</span>type<span class="token operator">:</span> NavigateType<span class="token punctuation">)</span><span class="token operator">:</span> Navigation <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> navigation<span class="token punctuation">[</span>type<span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 </div>
