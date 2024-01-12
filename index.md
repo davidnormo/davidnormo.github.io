@@ -72,7 +72,7 @@ layout: base.njk
              "Source Code Pro",
              "Fira Mono", 
              "Droid Sans Mono", 
-             "Courier New", monospace;;
+             "Courier New", monospace;
   letter-spacing: -5px;
   background: #333;
   color: #fff;

@@ -17,6 +17,7 @@ I may add to this list over time. If you have a suggested change or contribution
 
 - [Command](#command)
 - [Strategy](#strategy)
+- [Observer](#observer)
 
 <span id="command"></span>
 
@@ -31,10 +32,12 @@ const handleSave = () => {
   // ... do something ...
 };
 
-// In this example `renderToolbar` isn't aware of how to save but hands it off to `handleSave`
+// In this example `renderToolbar` isn't aware of
+// how to save but hands it off to `handleSave`
 renderToolbar({ onSave: handleSave });
 
-// In a lot of cases there isn't a generic interface for callbacks that can be used interchangeably but when
+// In a lot of cases there isn't a generic interface
+// for callbacks that can be used interchangeably but when
 // needed `renderToolbar` can define the type for it:
 
 // renderToolbar.ts
@@ -61,15 +64,18 @@ enum NavigateType = {
 }
 type Navigation = (a: number, b: number) => void;
 
-// `navigation` is an object that maps a navigation type string to a navigation function
-// The Navigation type here enforces that all members match it. You can't add a function that doesn't match the type.
+// `navigation` is an object that maps a navigation type
+// string to a navigation function
+// The Navigation type here enforces that all members
+// match it. You can't add a function that doesn't match the type.
 const navigation: Record<NavigateType, Navigation> = {
   walk: walkNavigation,
   road: roadNavigation,
   sea: seaNavigation,
 }
 
-// `navigateBy` calls the given navigation type function with the given parameters
+// `navigateBy` calls the given navigation type function
+// with the given parameters
 export const navigateBy = (type: NavigateType, a: number, b: number) => {
   navigation[type](a, b);
 }
@@ -79,3 +85,34 @@ export const getNavigation = (type: NavigateType): Navigation => {
   return navigation[type];
 }
 ```
+
+<span id="observer"></span>
+
+## Observer
+
+[Link to Observer pattern](https://refactoring.guru/design-patterns/observer)
+
+The most common case of the Observer pattern is the very common [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) base object from the DOM API i.e. `addEventListener` and `removeEventListener`. A common user land implementation is to just use a `subscription` function with a callback (or Command if you've been following along).
+
+```ts
+const notifier = {
+  subscriptions: [],
+  subscribe(callback) {
+    this.subscriptions.push(callback);
+  },
+  notify() {
+    this.subscriptions.forEach((cb) => cb());
+  },
+};
+
+// We add a callback to subscribe when `notifier` decides to
+// tell us that something has happened...
+notifier.subscribe(() => console.log("I was notified!"));
+
+// Later on, `notifier` can tell all the subscriptions
+// that something has happened
+notifier.notify();
+```
+
+This pattern is really powerful for decoupling parts of your code so they are unaware of each other. There are numerous popular implementations of
+this pattern: [Redux](https://redux.js.org/), Observables, [Node's `EventEmitter`](https://nodejs.org/api/events.html#class-eventemitter), the list goes on...
