@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+     @font-face {
+        font-family: "Consolas";
+        src: url("/Consolas.ttf"), format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      html {
+        font-size: 15px;
+      }
+      body {
+        box-sizing: border-box;
+        word-wrap: break-word;
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.6em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      a:has(h1) {
+        text-decoration: none;
+      }
+      h2 {
+        font-size: 1.7em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h3 {
+        margin-top: 2em;
+      }
+      li {
+        margin: 0.5em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre {
+        font-size: 13px!important;
+      }
+      pre code {
+        padding: 0;
+      }
+      *:not(pre) > code {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        padding: 4px 3px 2px 3px;
+        border-radius: 5px;
+        background: #e5e5e5;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      details {
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+      @media (max-width: 400px) {
+        body {
+          max-width: 100%;
+          width: 100%;
+          line-height: 1.4em;
+        }
+        * {
+          word-break: break-word;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <p>Software Engineer</p>
+    <div id="content"><h1>Binary Addition</h1>
+<p>Nothing ground breaking but just some practice to keep sharp:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Write a function that takes 2 numbers, adds them and returns binary as a string.</span><br><span class="token comment">// addBinary(1,2) -> "11"</span><br><span class="token comment">// addBinary(20, 30) -> "110010"</span></code></pre>
+<p>Sounds straight forward but I had actually forgotten how to convert a decimal number to binary (without cheating by using something like <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString"><code>Number.prototype.toString</code></a>). Turns out the algorithm is trivial:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// 50 divided by 2 is 25, remainder 0</span><br><span class="token comment">// 25 divided by 2 is 12, remainder 1</span><br><span class="token comment">// 12 divided by 2 is 6,  remainder 0</span><br><span class="token comment">// 6 divided by 2 is 3,   remainder 0</span><br><span class="token comment">// 3 divided by 2 is 1,   remainder 1</span><br><span class="token comment">// 1 divided by 2 is 0,   remainder 1</span><br><br><span class="token comment">// The binary is all the remainders in reverse: "110010"</span></code></pre>
+<p>So here goes:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token function">addBinary</span><span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span><br>  <span class="token keyword">let</span> s<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span><br>  <span class="token keyword">let</span> bin <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span><br>  <span class="token keyword">while</span> <span class="token punctuation">(</span>s <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// `s` modulo 2 gives the remainder which we prepend to the string</span><br>    bin <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>s <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> bin<span class="token punctuation">;</span><br>    <span class="token comment">// Update `s` by dividing and flooring to remove the remainder</span><br>    s <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>s <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> bin<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Nice little warm up.</p>
+</div>
+  </body>
+</html>
