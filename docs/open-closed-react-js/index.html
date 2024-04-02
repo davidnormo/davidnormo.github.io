@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+     @font-face {
+        font-family: "Consolas";
+        src: url("/Consolas.ttf"), format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      html {
+        font-size: 15px;
+      }
+      body {
+        box-sizing: border-box;
+        word-wrap: break-word;
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.6em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      a:has(h1) {
+        text-decoration: none;
+      }
+      h2 {
+        font-size: 1.7em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h3 {
+        margin-top: 2em;
+      }
+      li {
+        margin: 0.5em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre {
+        font-size: 13px!important;
+      }
+      pre code {
+        padding: 0;
+      }
+      *:not(pre) > code {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        padding: 4px 3px 2px 3px;
+        border-radius: 5px;
+        background: #e5e5e5;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      details {
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+      @media (max-width: 400px) {
+        body {
+          max-width: 100%;
+          width: 100%;
+          line-height: 1.4em;
+        }
+        * {
+          word-break: break-word;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <p>Software Engineer</p>
+    <div id="content"><h2>The Open Closed Principle in React.js code bases</h2>
+<p>Imagine we are building the UI for an online airline checkout. Users choose their flight, then can choose a series of options before paying. We'll hone in on the options code. In the first iteration we add support for the first option which just has an <code>open</code> boolean flag. The code we are writing is a small summary list that shows the options the user has selected:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Option</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  open<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">OptionsList</span><span class="token punctuation">(</span><span class="token punctuation">{</span> options <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> options<span class="token operator">:</span> Option<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> options<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>option<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">return</span> <span class="token operator">&lt;</span>OptionItem option<span class="token operator">=</span><span class="token punctuation">{</span>option<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><br>  <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>If the option is not <code>open</code>, then we don't render it. Pretty simple right? Next we add the next option which has a <code>startDate</code>:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Option</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  open<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br>  startDate<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">OptionsList</span><span class="token punctuation">(</span><span class="token punctuation">{</span> options <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> options<span class="token operator">:</span> Option<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> options<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>option<span class="token punctuation">.</span>open <span class="token operator">||</span> <span class="token operator">!</span>option<span class="token punctuation">.</span>startDate<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">OptionItem</span></span> <span class="token attr-name">option</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>option<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br>  <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>So now an <code>Option</code> can have either <code>open</code> or <code>startDate</code>. If either of those is falsy then we don't render the option. This is still simple code, right?</p>
+<p>No. This is not simple. This was just easy to add. Why isn't this simple? Because it's complex, meaning that we are interweaving things that should be separate. Or another way of putting it is we are introducing coupling between <code>OptionsList</code> and every type of option.</p>
+<p>Imagine now we are adding another option type, this time with a <code>checked</code> property:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Option</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  open<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br>  startDate<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span><br>  checked<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">OptionsList</span><span class="token punctuation">(</span><span class="token punctuation">{</span> options <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> options<span class="token operator">:</span> Option<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> options<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>option<span class="token punctuation">.</span>open <span class="token operator">||</span> <span class="token operator">!</span>option<span class="token punctuation">.</span>startDate <span class="token operator">||</span> <span class="token operator">!</span>option<span class="token punctuation">.</span>checked<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">OptionItem</span></span> <span class="token attr-name">option</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>option<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br>  <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Again, this looks deceptively simple. But we are just adding more stuff into the ball of mud. So why is this code bad?</p>
+<ol>
+<li>
+<p>When we add a new option we need to remember all the places we need to update to support it. In the example above, we need to remember to update our <code>if</code> statement to not render it when it's not selected.</p>
+</li>
+<li>
+<p>If we want to delete this option in future, we need to do the same. Otherwise we have dead code floating around the code base that isn't used and just adds cruft and extra bytes to our bundles.</p>
+</li>
+<li>
+<p>The <code>Option</code> type isn't very helpful. It's just a bag of optional properties that doesn't give us any understanding of when one property exists and another doesn't.</p>
+</li>
+</ol>
+<p>The reason why this code violates the Open Closed Principle is that <code>OptionList</code> is not closed to modification. It's only technical open to extension if 2 different options share the same properties. But that's also a it grim.</p>
+<p>Let's refactor this so that we close it to modifications but keep it open to extension:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// Option.ts</span><br><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Option</span> <span class="token punctuation">{</span><br>  <span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">boolean</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// OptionList.tsx</span><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">OptionsList</span><span class="token punctuation">(</span><span class="token punctuation">{</span> options <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> options<span class="token operator">:</span> Option<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> options<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>option<span class="token punctuation">.</span><span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">OptionItem</span></span> <span class="token attr-name">option</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>option<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br>  <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now, when a new option is added or removed, no change to <code>OptionList</code> is needed.</p>
+<p>Let's take a look at some of our options:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// OpenOption.ts</span><br><span class="token keyword">class</span> <span class="token class-name">OpenOption</span> <span class="token keyword">implements</span> <span class="token class-name">Option</span> <span class="token punctuation">{</span><br>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> open<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><br><br>  <span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>open<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// DatedOption.ts</span><br><span class="token keyword">class</span> <span class="token class-name">DatedOption</span> <span class="token keyword">implements</span> <span class="token class-name">Option</span> <span class="token punctuation">{</span><br>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> startDate<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><br><br>  <span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>startDate<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// CheckedOption.ts</span><br><span class="token keyword">class</span> <span class="token class-name">CheckedOption</span> <span class="token keyword">implements</span> <span class="token class-name">Option</span> <span class="token punctuation">{</span><br>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> checked<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><br><br>  <span class="token function">isSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>checked<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Quick pause. If the use of classes is starting to make you feel uneasy and imaginings of OOP and Java are coming to mind, hold on. Don't snub it just yet. Let's see where this takes us. We all have preferences, some not very objective let's be honest. In the name of clean code, let's press on and see if we can find some treasure.</p>
+<p>Looking at the above code, you may be asking &quot;Dave, how do these new classes get used? Surely we'd have to change some code somewhere to add them in!&quot; Yep, we would and here's how:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// OptionFactory.ts</span><br><span class="token keyword">export</span> <span class="token keyword">const</span> optionFactory <span class="token operator">=</span> <span class="token punctuation">(</span>opt<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> Option <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">case</span> <span class="token keyword">typeof</span> opt<span class="token punctuation">.</span>open <span class="token operator">===</span> <span class="token string">'boolean'</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">OpenOption</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">case</span> <span class="token keyword">typeof</span> opt<span class="token punctuation">.</span>startDate <span class="token operator">===</span> <span class="token string">'string'</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DatedOption</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">case</span> <span class="token keyword">typeof</span> opt<span class="token punctuation">.</span>checked <span class="token operator">===</span> <span class="token string">'boolean'</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CheckedOption</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">default</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UnknownOption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// CheckoutPage.tsx</span><br><span class="token keyword">function</span> <span class="token function">CheckoutPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>options<span class="token punctuation">,</span> setOptions<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span>Option<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">fetchOptions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>opts <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token function">setOptions</span><span class="token punctuation">(</span>opts<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>opt <span class="token operator">=></span> <span class="token function">optionFactory</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">OptionList</span></span> <span class="token attr-name">options</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span><br><span class="token punctuation">}</span></code></pre>
+<p>So when we'll need to keep the factory up to date when we add and remove new <code>Option</code> types but not all the places that use the options.</p>
+<p>You may be thinking &quot;That's way more code! How is that simpler?!&quot; It is simpler because <code>OptionsList</code> doesn't know anything about the internals of each option. Although we've added more code (which was less easy) we have made the code simpler. Notice particularly that there is no large conditional that combines all of the options together.</p>
+<p>So at this point, the code was less easy to make simpler than just adding the extra conditon in <code>OptionsList</code>. Isn't writing easy code more maintainable? If all code is easy to write, it's easy to maintain, right? This is an interesting problem. Because on one side, yes easy code is easy to maintain. But on the other, if we always write easy code then it doesn't stay easy.</p>
+<p>All code starts out easy. Writing something from scratch is easy. But without simplifying it, easy code becomes more and more complicated. As we add more and more conditions and branches the code becomes less understandable. Eventually it is no longer easy to change and the only option is to rewrite everything and start again.</p>
+<p>However, what happens when we spend a bit more time and care to make the code simpler? The code is not so complex and remains at a constant level of easiness to change.</p>
+<p>Here is an interesting question to ask ourselves: is the simpler code easy to understand? As you've seen this code evolve, your understanding of <code>OptionList</code> is quite clear. However imagine reading it for the first time. You'd understand that in some cases an option isn't rendered but you don't see the specific circumstances. We've hidden that level of information. We've added a layer of indirection which introduces a mental cost to understand. But the tradeoff is that our code is less coupled. So if newbies come to the code, they will need to take some time to understand what is going on before it becomes apparent. Once that context is loaded into their brains they are able to work more easily with the code.</p>
+<p>Now, imagine testing <code>OptionList</code>. In our first version we need to add more tests for the large <code>if</code> statement we were building. With every condition added we'd be adding more and more tests for <code>OptionList</code>. However, now with the closed version there's nothing new to test! We can pass a <code>MockOption</code> that tests the call to <code>isSelected()</code> and we are done.</p>
+<h2>Round Up</h2>
+<p>Now it's confession time. I have never seen code like this in a React (or any UI) code base. Perhaps there's some ideas like the above in some libraries but not where the majority of my work is done. I've seen plenty of &quot;this was easy now it's a mess&quot; code in UI code bases. I have some theories as to why that is but perhaps that's for another time.</p>
+<p>We've used classes here but they could quite easily have been plain objects. Or using a library that provides multimethods or something similar - any construct that provides us with polymorphism would work really. But classes, at this point of time, are the de facto built in construct. You never know, maybe JS will get type classes at some point. So while I've used classes above, I would not use inheritance, perhaps only sparingly.</p>
+<p>Ok. So here we are. We have some pretty clean code. It mixes the functional patterns used in React with a sprinkling of OOP for some polymorphic goodness. Perhaps those golden oldies were right after all? Perhaps it's the new dogs that need to learn old tricks.</p>
+</div>
+  </body>
+</html>
