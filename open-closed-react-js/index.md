@@ -2,7 +2,7 @@
 layout: base.njk
 tags: post
 title: Open/Closed React.js
-date: 2024-30-03
+date: 2024-03-30
 summary: I don't see this principle used a lot in front end code bases but it really should.
 ---
 
