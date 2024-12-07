@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>davidnormo blog</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="theme-color" content="#333333" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <style>
+     @font-face {
+        font-family: "Consolas";
+        src: url("/Consolas.ttf"), format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      html {
+        font-size: 15px;
+      }
+      body {
+        box-sizing: border-box;
+        word-wrap: break-word;
+        font-family: Trebuchet MS;
+        font-size: 1em;
+        line-height: 1.6em;
+        padding: 20px;
+        background: #fcfcfc;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      a {
+        color: #333;
+      }
+      h1,
+      h2 {
+        font-family: Garamond, Bookman, Georgia;
+      }
+      h1 {
+        font-size: 2em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      a:has(h1) {
+        text-decoration: none;
+      }
+      h2 {
+        font-size: 1.7em;
+        line-height: 1em;
+        font-weight: normal;
+      }
+      h3 {
+        margin-top: 2em;
+      }
+      li {
+        margin: 0.5em 0;
+      }
+      .title a {
+        font-size: 2.5em;
+        line-height: 1em;
+        font-weight: bold;
+        color: inherit;
+      }
+      .description {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 0.3em;
+        margin-bottom: 20px;
+      }
+      pre {
+        font-size: 13px!important;
+      }
+      pre code {
+        padding: 0;
+      }
+      *:not(pre) > code {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        padding: 4px 3px 2px 3px;
+        border-radius: 5px;
+        background: #e5e5e5;
+      }
+      blockquote {
+        border-left: 5px solid #ddd;
+        padding-left: 20px;
+        margin: 40px 10px;
+        font-style: italic;
+      }
+      details {
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+      @media (max-width: 400px) {
+        body {
+          max-width: 100%;
+          width: 100%;
+          line-height: 1.4em;
+        }
+        * {
+          word-break: break-word;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+    <meta property="og:image" content="/img/david-normington.jpeg" />
+  </head>
+  <body>
+    <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
+    <p>Software Engineer</p>
+    <div id="content"><h1>React 19 - <code>use</code></h1>
+<p>This week React 19 was released (5 Dec). I've had a look through of the feature set and wanted to share some thoughts. There's a lot to go through so I'll just start with one of the new APIs: <code>use</code>.</p>
+<p>React documentation on <a href="https://react.dev/reference/react/use">react.dev</a>.</p>
+<h2>Overview</h2>
+<p><code>use</code> is not a hook but follows most of the same rules. It acts as resolving a resource (either a Promise or Context). For example, previously you might be doing something like this:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> fetchFriends <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./api"</span><span class="token punctuation">;</span><br><br><span class="token comment">// Fetch when module is initialised</span><br><span class="token keyword">const</span> friendsPromise <span class="token operator">=</span> <span class="token function">fetchFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">FriendList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>friends<span class="token punctuation">,</span> setFriends<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    friendsPromise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setFriends</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// ....</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Now with <code>use</code> it might look like this:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> fetchFriends <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./api"</span><span class="token punctuation">;</span><br><br><span class="token comment">// Fetch when module is initialised</span><br><span class="token keyword">const</span> friendsPromise <span class="token operator">=</span> <span class="token function">fetchFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">FriendList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span>friendsPromise<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// ....</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p><code>FriendList</code> will suspend until <code>friendsPromise</code> either resolves or rejects. The nearest suspense boundary will show the fallback while suspended. If the promise resolve the component will be rendered and the contents shown. If the promise rejects then the nearest error boundary will be triggered.</p>
+<h2>Hook-ish</h2>
+<p>As mentioned earlier, <code>use</code> follows all the same rules of hooks apart from it's also allowed in/after flow control statements (<code>for</code>/<code>while</code>/<code>if</code> etc). So if your component returns early it can be followed by <code>use</code>. I suppose this means a component may/may not suspend depending. Otherwise it's usage should follow the same rules as the other hooks.</p>
+<p>I'm not a huge fan of this divergence. It was bad enough when hooks came out that they have these &quot;rules&quot; and we can't treat them exactly like regular functions. But over time we've gotten use to it and I suppose the same will be said of this. Hopefully the linting rules will be updated to handle this difference to the hooks.</p>
+<h2>Final Thoughts</h2>
+<p>I've been waiting for this API for a while and glad to see that it's in the v19 release. Anything that means I don't need to write another <code>useEffect</code> is a good thing in my books (but perhaps that's a topic for another time).</p>
+<p>There are some gotchas, namely that React doesn't handle caching of promises (yet?). So if the promise is created in the component render then it may be re-created multiple times. This caching, apparently, can be handled by &quot;suspense powered&quot; libraries - although I'm not sure what the API for that looks like yet.</p>
+<p>Most of the projects I work on day to day still have the request promises managed outside the React render cycle so this isn't a feature I'll be using regularly. It will be interesting to see how libraries will make use of it or encourage it's use alongside their APIs.</p>
+</div>
+  </body>
+</html>
