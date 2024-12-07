@@ -3,7 +3,7 @@ layout: base.njk
 tags: post
 title: React 19 - use
 date: 2024-12-07
-summary: ...
+summary: This week React 19 was released (5 Dec). I've had a look through of the feature set and wanted to share some thoughts. There's a lot to go through so I'll just start with one of the new APIs - use
 draft: false
 ---
 
