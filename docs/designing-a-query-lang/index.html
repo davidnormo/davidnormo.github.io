@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>davidnormo blog</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta name="theme-color" content="#333333" />
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="theme-color" content="#333333">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
     <style>
      @font-face {
         font-family: "Consolas";
@@ -104,7 +104,7 @@
         }
       }
     </style>
-    <meta property="og:image" content="/img/david-normington.jpeg" />
+    <meta property="og:image" content="/img/david-normington.jpeg">
   </head>
   <body>
     <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
@@ -119,7 +119,8 @@
 <p>An example query may have been:</p>
 <pre class="language-text"><code class="language-text">get crypto where price > 200m</code></pre>
 <p>This would roughly translate to:</p>
-<pre class="language-sql"><code class="language-sql"><span class="token comment"># Aggregate the position records (sum) and filter (where) the aggregates by those greater than 200 million.</span><br><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">from</span> Positions<span class="token punctuation">)</span> <span class="token keyword">where</span> price <span class="token operator">></span> <span class="token number">200000000</span></code></pre>
+<pre class="language-sql"><code class="language-sql"><span class="token comment"># Aggregate the position records (sum) and filter (where) the aggregates by those greater than 200 million.</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">from</span> Positions<span class="token punctuation">)</span> <span class="token keyword">where</span> price <span class="token operator">></span> <span class="token number">200000000</span></code></pre>
 <p>We knew ahead of time that there was a limited number of columns and we knew the types of the columns which meant that we could infer the column aggregate function (sum, concat etc). That meant less syntax for the end user to learn, win!</p>
 <p>It occurred to me that the user would probably want a lot of the same tools that developers use everyday to help them construct their queries, such as syntax highlighting and autocompletion. However we didn’t want the network latency to hinder the user experience; who wants to wait for a round trip before knowing there’s a syntax error! The final query language was § written using ANTLR which we’d use to generate the Java parser. Luckily, ANTLR also supports generating Javascript which we could use to parse the statements on the client, check for syntax errors, use the AST (Abstract Syntax Tree) for highlighting and for autocompletion.</p>
 <p>Unfortunately I moved on from Signal Noise before seeing the final version. Although it was fun working on context free grammars and mixing more computer science stuff with software engineering, I have my doubts as to how successful the query language will be. Thinking of similar implementations such as Jira’s JQL, I don’t know how well used or liked it is verus filters and drop down menus. The client even said that they had tried a query language before without much success.</p>

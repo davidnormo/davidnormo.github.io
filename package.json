@@ -17,13 +17,10 @@
   "bugs": {
     "url": "https://github.com/davidnormo/davidnormo.github.io/issues"
   },
-  "engines": {
-    "node": "14.18.3",
-    "npm": "6.14.15"
-  },
   "homepage": "https://github.com/davidnormo/davidnormo.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
+    "@11ty/eleventy-img": "^6.0.4"
   }
 }

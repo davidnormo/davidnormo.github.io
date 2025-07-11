@@ -1,8 +1,16 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const isDevEnv = process.env.ELEVENTY_ENV === "development";
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["auto"],
+    sharpOptions: {
+      animated: true,
+    },
+  });
+
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addFilter("formatDate", (date) => {

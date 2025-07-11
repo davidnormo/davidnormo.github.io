@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>davidnormo blog</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta name="theme-color" content="#333333" />
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="theme-color" content="#333333">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
     <style>
      @font-face {
         font-family: "Consolas";
@@ -104,7 +104,7 @@
         }
       }
     </style>
-    <meta property="og:image" content="/img/david-normington.jpeg" />
+    <meta property="og:image" content="/img/david-normington.jpeg">
   </head>
   <body>
     <a href="https://davidnormo.github.io/"><h1>Dave Normington</h1></a>
@@ -114,10 +114,32 @@
 <p>Circular or recursive dependencies are modules that eventually depend upon themselves. This causes unexpected errors at run time such as module exports seemingly being undefined.</p>
 <h3>An example</h3>
 <p>Consider the following code</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span><br><span class="token keyword">const</span> <span class="token punctuation">{</span> b <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>a <span class="token operator">=</span> a<span class="token punctuation">;</span><br><span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// b.js</span><br><span class="token keyword">const</span> <span class="token punctuation">{</span> a <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>b <span class="token operator">=</span> b<span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> b <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>a <span class="token operator">=</span> a<span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// b.js</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> a <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>b <span class="token operator">=</span> b<span class="token punctuation">;</span></code></pre>
 <p>We have 2 modules, <code>a.js</code> and <code>b.js</code>. <code>a</code> depends on <code>b</code> and <code>b</code> depends on <code>a</code> - a circular dependency!</p>
 <p>Let’s execute the code to see what happens:</p>
-<pre class="language-bash"><code class="language-bash">$ <span class="token function">node</span> ./a<br>/Users/davidnormo/tmp/b.js:4<br>  a<span class="token punctuation">(</span><span class="token punctuation">)</span><br>  ^<br><br>TypeError: a is not a <span class="token keyword">function</span><br>    at b <span class="token punctuation">(</span>/Users/davidnormo/tmp/b.js:4:3<span class="token punctuation">)</span><br>    at a <span class="token punctuation">(</span>/Users/davidnormo/tmp/a.js:4:2<span class="token punctuation">)</span><br>    at Object.<span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>/Users/davidnormo/tmp/a.js:7:1<span class="token punctuation">)</span><br>    <span class="token punctuation">..</span>.</code></pre>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">node</span> ./a
+/Users/davidnormo/tmp/b.js:4
+  a<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  ^
+
+TypeError: a is not a <span class="token keyword">function</span>
+    at b <span class="token punctuation">(</span>/Users/davidnormo/tmp/b.js:4:3<span class="token punctuation">)</span>
+    at a <span class="token punctuation">(</span>/Users/davidnormo/tmp/a.js:4:2<span class="token punctuation">)</span>
+    at Object.<span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>/Users/davidnormo/tmp/a.js:7:1<span class="token punctuation">)</span>
+    <span class="token punctuation">..</span>.</code></pre>
 <p>What happened? We got a <code>TypeError</code> which means that the error occured at runtime. The code was compiled by the JS engine (V8 in our case) so the circular dependency wasn’t caught early. This is because dependencies in Node are resolved at runtime, <code>require</code> is just another function.</p>
 <p>When it came to executing the code, the stack trace tells us the story. Reading from the bottom upwards (I’ve cut out the start of the stack that references node internals):</p>
 <ul>
