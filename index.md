@@ -121,7 +121,7 @@ article {
     <h2 class="heroTitle"><div class="mono">Full Stack</div><div class="serif">Front end specialist</div></h2>
   </div>
   <div class="fadeUp skills">
-    <div>20 years programming experience</div>
+    <div>+ 20 years programming experience</div>
     <div>Comp sci fundamentals</div>
     <div>Highly scalable applications</div>
     <div>Pragmatic</div>
