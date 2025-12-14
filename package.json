@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "rm -rf docs && eleventy"
   },
   "repository": {
     "type": "git",
